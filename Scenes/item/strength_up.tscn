@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2kt7fnk4ucut"]
+
+[ext_resource type="Script" uid="uid://cd54koaqj7k51" path="res://Scripts/itemScripts/strength_up.gd" id="1_wiaub"]
+[ext_resource type="Texture2D" uid="uid://cc5j80ntvhq87" path="res://Assets/Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="2_4qe7o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qjmai"]
+radius = 7.07107
+
+[node name="strengthUp" type="Area2D"]
+script = ExtResource("1_wiaub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4qe7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qjmai")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

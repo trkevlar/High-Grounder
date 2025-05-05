@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgrkxn42wd201"]
+
+[ext_resource type="Texture2D" uid="uid://cmrd85lkkhygt" path="res://Assets/Sprites/Treasure Hunters/Palm Tree Island/Sprites/Objects/Chest/Chest Close 01.png" id="1_pxutl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgsf1"]
+size = Vector2(28, 23)
+
+[node name="Chest" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 4.5)
+shape = SubResource("RectangleShape2D_cgsf1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pxutl")

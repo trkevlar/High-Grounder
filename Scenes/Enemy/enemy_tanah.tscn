@@ -1,0 +1,192 @@
+[gd_scene load_steps=30 format=3 uid="uid://bnxg0hhs6nudg"]
+
+[ext_resource type="Script" uid="uid://duf2ud1vr1oxg" path="res://Scripts/enemyScripts/enemy_tanah.gd" id="1_64eii"]
+[ext_resource type="Texture2D" uid="uid://ckjr2fv3se6p5" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 01.png" id="2_th4gb"]
+[ext_resource type="Texture2D" uid="uid://b8ocxja33kxnv" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 02.png" id="3_diki0"]
+[ext_resource type="Texture2D" uid="uid://bn38y1rgg0ugb" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 03.png" id="4_4vf4j"]
+[ext_resource type="Texture2D" uid="uid://bitxhohmm7yw7" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 04.png" id="5_826w4"]
+[ext_resource type="Texture2D" uid="uid://ccsvpa8xn6pxv" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="14_l17i4"]
+[ext_resource type="Texture2D" uid="uid://d0pjmc8jcwsgk" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 02.png" id="15_4mvy6"]
+[ext_resource type="Texture2D" uid="uid://ti6yfe2mj181" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 03.png" id="16_bjjai"]
+[ext_resource type="Texture2D" uid="uid://c54pehc5mer04" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 04.png" id="17_ki8gt"]
+[ext_resource type="Texture2D" uid="uid://b7o1sy41ns5e0" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 05.png" id="18_vtnmr"]
+[ext_resource type="Texture2D" uid="uid://dujm51wdskcyk" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 06.png" id="19_itndl"]
+[ext_resource type="Texture2D" uid="uid://liwbfeqhbf40" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 07.png" id="20_m5w0l"]
+[ext_resource type="Texture2D" uid="uid://dqoi1t0xd3k2c" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 08.png" id="21_hhap2"]
+[ext_resource type="Texture2D" uid="uid://cw5ayqh6mnw1f" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 09.png" id="22_0ur5u"]
+[ext_resource type="Texture2D" uid="uid://c56bbwudmt5fm" path="res://Assets/Sprites/enemy/slime.png" id="23_2p3dp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xs15"]
+atlas = ExtResource("23_2p3dp")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imxfm"]
+atlas = ExtResource("23_2p3dp")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0kdv"]
+atlas = ExtResource("23_2p3dp")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vf4j"]
+atlas = ExtResource("23_2p3dp")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_826w4"]
+atlas = ExtResource("23_2p3dp")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p3dp"]
+atlas = ExtResource("23_2p3dp")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik43c"]
+atlas = ExtResource("23_2p3dp")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx62v"]
+atlas = ExtResource("23_2p3dp")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80c86"]
+atlas = ExtResource("23_2p3dp")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ab0t"]
+atlas = ExtResource("23_2p3dp")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jye80"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_th4gb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_diki0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4vf4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_826w4")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xs15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imxfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0kdv")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vf4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_826w4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p3dp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ik43c")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_l17i4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4mvy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_bjjai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ki8gt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_vtnmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_itndl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_m5w0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_hhap2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_0ur5u")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx62v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80c86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ab0t")
+}],
+"loop": false,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2y6a2"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_64eii"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dt72l"]
+radius = 6.0
+
+[node name="EnemyTanah" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_64eii")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jye80")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2y6a2")
+
+[node name="DirectionTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="EnemyTanahHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyTanahHitbox"]
+shape = SubResource("CircleShape2D_64eii")
+
+[node name="enemyTanahDealDamage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyTanahDealDamage"]
+shape = SubResource("CircleShape2D_dt72l")
+
+[connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
+[connection signal="area_entered" from="EnemyTanahHitbox" to="." method="_on_enemy_tanah_hitbox_area_entered"]
+[connection signal="area_entered" from="enemyTanahDealDamage" to="." method="_on_enemy_tanah_deal_damage_area_entered"]
+[connection signal="area_exited" from="enemyTanahDealDamage" to="." method="_on_enemy_tanah_deal_damage_area_exited"]
