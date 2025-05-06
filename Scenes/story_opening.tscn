@@ -1,0 +1,470 @@
+[gd_scene load_steps=11 format=3 uid="uid://50xtr0kk45jt"]
+
+[ext_resource type="Script" path="res://Scripts/story_opening.gd" id="1_exlue"]
+[ext_resource type="Texture2D" uid="uid://dpf23b588vlla" path="res://Assets/story/Sprite-0003.png" id="2_5evaf"]
+[ext_resource type="Texture2D" uid="uid://c56moimuxeboq" path="res://Assets/story/Sprite-0004.png" id="3_pn0ls"]
+[ext_resource type="Texture2D" uid="uid://7l2ohckp3nj7" path="res://Assets/story/Sprite-0005.png" id="4_4swqh"]
+[ext_resource type="Texture2D" uid="uid://31w5nmfup256" path="res://Assets/story/Sprite-00025.png" id="5_q16vr"]
+[ext_resource type="Texture2D" uid="uid://6thq382ohf87" path="res://Assets/story/Sprite-0105.png" id="6_rfcel"]
+[ext_resource type="FontFile" uid="uid://18sletis5tt4" path="res://Assets/Fonts/Symtext.ttf" id="7_eoxcx"]
+
+[sub_resource type="Animation" id="Animation_teom5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("op_scn1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("op_scn2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("op_scn3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("op_scn4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("op_scn5:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBox1:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBox2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextBox3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TextBox4:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TextBox5:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TextBox6:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3jljr"]
+resource_name = "opening"
+length = 50.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("op_scn1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5.06667, 7.06667, 13.0333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("op_scn2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(13, 15, 21),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("op_scn3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(21.0333, 23.1333, 29),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("op_scn4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(28.9667, 31, 36.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("op_scn5:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(36.9, 38.8667, 44.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBox1:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 5.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBox2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 5.03333, 12.4667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextBox3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 12.5, 20.0333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TextBox4:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 20, 27.9667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TextBox5:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 28.1, 35.8333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TextBox6:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 36, 44.0333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_th10q"]
+_data = {
+"RESET": SubResource("Animation_teom5"),
+"opening": SubResource("Animation_3jljr")
+}
+
+[node name="StoryOpening" type="Node2D"]
+script = ExtResource("1_exlue")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_th10q")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1165.0
+offset_bottom = 666.0
+color = Color(0, 0, 0, 1)
+
+[node name="op_scn1" type="Sprite2D" parent="."]
+position = Vector2(574, 324.375)
+scale = Vector2(7.175, 7.21389)
+texture = ExtResource("2_5evaf")
+
+[node name="op_scn2" type="Sprite2D" parent="."]
+position = Vector2(577, 322.875)
+scale = Vector2(7.2125, 7.18056)
+texture = ExtResource("3_pn0ls")
+
+[node name="op_scn3" type="Sprite2D" parent="."]
+position = Vector2(578.5, 325.375)
+scale = Vector2(7.23125, 7.23611)
+texture = ExtResource("4_4swqh")
+
+[node name="op_scn4" type="Sprite2D" parent="."]
+position = Vector2(578.5, 325.375)
+scale = Vector2(7.23125, 7.23611)
+texture = ExtResource("5_q16vr")
+
+[node name="op_scn5" type="Sprite2D" parent="."]
+position = Vector2(573, 318)
+scale = Vector2(0.72, 0.722222)
+texture = ExtResource("6_rfcel")
+
+[node name="TextBox1" type="Panel" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="TextBox1"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 445.0
+offset_right = 1156.0
+offset_bottom = 637.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextEdit" type="TextEdit" parent="TextBox1"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 482.0
+offset_right = 1128.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("7_eoxcx")
+theme_override_font_sizes/font_size = 18
+text = "“In a world that was once peaceful, rabbits lived freely under the sun… 
+until the humans came. Their lands were seized. Their homes burned. And they were enslaved
+in the world they once called home.”"
+
+[node name="TextBox2" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="TextBox2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 445.0
+offset_right = 1156.0
+offset_bottom = 637.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextEdit" type="TextEdit" parent="TextBox2"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 482.0
+offset_right = 1128.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("7_eoxcx")
+theme_override_font_sizes/font_size = 18
+text = "“With chains on their paws and silence in their hearts, the rabbits were marched toward 
+imprisonment. No hope. No voice. Only the echo of boots... and the weight of oppression 
+hanging in the air.”"
+
+[node name="TextBox3" type="Panel" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="TextBox3"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 445.0
+offset_right = 1156.0
+offset_bottom = 637.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextEdit" type="TextEdit" parent="TextBox3"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 482.0
+offset_right = 1128.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("7_eoxcx")
+theme_override_font_sizes/font_size = 18
+text = "“But nature does not choose sides. The ground shook. The mountains cried. And in a single 
+breath… the earth swallowed them all.”"
+
+[node name="TextBox4" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="TextBox4"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 445.0
+offset_right = 1156.0
+offset_bottom = 637.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextEdit" type="TextEdit" parent="TextBox4"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 482.0
+offset_right = 1128.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("7_eoxcx")
+theme_override_font_sizes/font_size = 18
+text = " “Screams vanished into the void. Bodies scattered across the depths of the abyss. Cold. 
+Silent. As if the world itself had buried their story forever.”"
+
+[node name="TextBox5" type="Panel" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="TextBox5"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 445.0
+offset_right = 1156.0
+offset_bottom = 637.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextEdit" type="TextEdit" parent="TextBox5"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 482.0
+offset_right = 1128.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("7_eoxcx")
+theme_override_font_sizes/font_size = 18
+text = "“But… one breath remained. Amidst the ruins and corpses, a single rabbit opened his eyes. 
+Wounded, broken… but alive.”"
+
+[node name="TextBox6" type="Panel" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="TextBox6"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 445.0
+offset_right = 1156.0
+offset_bottom = 637.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextEdit" type="TextEdit" parent="TextBox6"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 482.0
+offset_right = 1128.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("7_eoxcx")
+theme_override_font_sizes/font_size = 18
+text = "“Beside him… a weapon, likely dropped by a fallen guard. To the rabbit, it wasn’t just a 
+tool of violence—it was a spark of hope. As he gripped it, strength surged through his 
+body… and his soul. He knew what he had to do: Climb. Climb back to the world above. Not as 
+a slave… but as a warrior.”"
