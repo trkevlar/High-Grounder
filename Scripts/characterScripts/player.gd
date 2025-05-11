@@ -141,8 +141,12 @@ func update_movement_animation():
 			animation.play("fall")
 
 func handleDeathAnimation():
+	velocity = Vector2.ZERO
 	$CollisionShape2D.position.y = 5
 	animation.play("death")
+	
+	set_physics_process(false)
+	
 	await get_tree().create_timer(0.5).timeout
 	$Camera2D.zoom.x = 4
 	$Camera2D.zoom.y = 4
@@ -162,20 +166,20 @@ func toggle_flip_sprite(dir):
 		animation.flip_h = true
 		$AttackArea.scale.x = -1
 
-func handleAttackAnimation(attackType):
+func handleAttackAnimation(attack_type):
 	if attacking:
-		var animasiJalan = str(attackType)
+		var animasiJalan = str(attack_type)
 		animation.play(animasiJalan)
-		toggleDamageCollision(attackType)
+		toggleDamageCollision(attack_type)
 
-func toggleDamageCollision(attackType):
+func toggleDamageCollision(attack_type):
 	var damageZoneCollision = attack_area.get_node("CollisionShape2D")
 	var waitTime: float
-	if attackType == "airAttack":
+	if attack_type == "airAttack":
 		waitTime = 0.5
-	elif attackType == "attack":
+	elif attack_type == "attack":
 		waitTime = 0.6
-	elif attackType == "attack2":
+	elif attack_type == "attack2":
 		waitTime = 0.4
 	damageZoneCollision.disabled = false
 	await get_tree().create_timer(waitTime).timeout
@@ -185,14 +189,14 @@ func toggleDamageCollision(attackType):
 func _on_animated_sprite_2d_animation_finished() -> void:
 	attacking = false
 
-func setDamage(attackType):
+func setDamage(attack_type):
 	var base_attack_damage: int
 	
-	if attackType == "attack":
+	if attack_type == "attack":
 		base_attack_damage = 8
-	elif attackType == "attack2":
+	elif attack_type == "attack2":
 		base_attack_damage = 5
-	elif attackType == "airAttack":
+	elif attack_type == "airAttack":
 		base_attack_damage = 10
 	Global.playerDamageAmount = calculate_final_damage(base_attack_damage)
 

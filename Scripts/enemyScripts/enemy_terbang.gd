@@ -7,7 +7,7 @@ var dir: Vector2
 
 var is_crab_chase: bool
 
-var player: CharacterBody2D
+var target_player: CharacterBody2D
 
 var health = 50
 var healthMax = 50
@@ -24,11 +24,12 @@ func _ready():
 
 func _process(delta):
 	Global.crabDamageAmount = damageToDeal
-	Global.crabDamageZone = $batDamageArea
-	
-	if Global.playerAlive:
+	Global.crabDamageZone = $crabDamageArea
+	target_player = Global.playerBody
+	if Global.playerAlive and is_instance_valid(Global.playerBody):
+		target_player = Global.playerBody
 		is_crab_chase = true
-	elif !Global.playerAlive:
+	else:
 		is_crab_chase = false
 	
 	if is_on_floor() and dead:
@@ -41,14 +42,13 @@ func _process(delta):
 
 
 func move(delta):
-	player = Global.playerBody
 	if !dead:
 		isRoaming = true
-		if !takingDamage and is_crab_chase and Global.playerAlive:
-			velocity = position.direction_to(player.position) * speed
+		if !takingDamage and is_crab_chase and Global.playerAlive and is_instance_valid(target_player):
+			velocity = position.direction_to(target_player.position) * speed
 			dir.x = abs(velocity.x) / velocity.x
-		elif takeDamage:
-			var knockbackDir = position.direction_to(player.position) * -50
+		elif takingDamage and is_instance_valid(target_player):
+			var knockbackDir = position.direction_to(target_player.position) * -50
 			velocity = knockbackDir
 		else:
 			velocity += dir * speed * delta
