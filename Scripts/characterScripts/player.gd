@@ -17,15 +17,11 @@ var healthMax = 100
 var healthMin = 0
 var dead: bool
 var canTakingDamage: bool
+var is_taking_damage = false
 
 var is_hit: bool = false
 
 var active_skills: Array[PlayerSkill] = []
-
-#attack
-#func _process(delta):
-	#if Input.is_action_just_pressed("attack"):
-		#attack()
 
 func _ready():
 	Global.load_player_skills(self)
@@ -37,13 +33,6 @@ func _ready():
 	Global.playerhitBox = $playerHitbox
 	
 func _physics_process(delta: float) -> void:
-	#flip juga
-	#if Input.is_action_pressed("left"):
-		#sprite.scale.x = abs(sprite.scale.x) * -1
-	#if Input.is_action_pressed("right"):
-		#sprite.scale.x = abs(sprite.scale.x)
-	
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	if !dead and !is_hit:
@@ -84,25 +73,29 @@ func _physics_process(delta: float) -> void:
 
 func checkHitbox():
 	var hitboxAreas = $playerHitbox.get_overlapping_areas()
-	var damage: int
-	if hitboxAreas:
-		#tambahan beberapa
-		var hitbox = hitboxAreas.front()
+	var totalDamage = 0
+	for hitbox in hitboxAreas:
 		var parent = hitbox.get_parent()
 		if parent is flyEnemy and !parent.dead:
-			damage = Global.crabDamageAmount
+			if parent.isDealingDamage:
+				totalDamage += Global.crabDamageAmount
 		elif parent is enemyTanah and !parent.dead:
-			damage = Global.enemyTanahDamageAmount
-			
-	if canTakingDamage:
-		takeDamage(damage)
+			if parent.isDealingDamage:
+				totalDamage += Global.enemyTanahDamageAmount
+		elif parent is enemyMushroom and !parent.dead:
+			if parent.isDealingDamage:
+				totalDamage += Global.enemyMushroomDamageAmount
+	
+	if totalDamage > 0 and canTakingDamage:
+		takeDamage(totalDamage)
 
 func takeDamage(damage):
-	if damage <= 0 or not canTakingDamage or dead:
+	if damage <= 0 or not canTakingDamage or dead or is_taking_damage:
 		return
+	is_taking_damage = true
 	is_hit = true
 	health -= damage
-	print("Player Health: ", health)
+	print(health)
 	animation.play("hit")
 	canTakingDamage = false 
 	
@@ -127,6 +120,7 @@ func takeDamage(damage):
 	else:
 		# Start damage cooldown
 		takeDamageCooldown(1.0)
+	is_taking_damage = false
 
 func update_movement_animation():
 	if is_on_floor():
@@ -229,65 +223,3 @@ func calculate_final_damage(base_attack_damage: int) -> int:
 			health = min(health + heal_amount, healthMax)
 	
 	return final_damage
-	
-
-#func attack():
-	#var overlapping_objects = $AttackArea.get_overlapping_areas()
-	#
-	##for area in overlapping_objects:
-		##var parent = area.get_parent()
-		##parent.queue_free()
-		#
-	#attacking = true
-	#animation.play("attack")
-
-
-
-
-
-
-
-#extends CharacterBody2D
-#
-#@onready var animated_sprite = $AnimatedSprite2D
-#
-#@export var SPEED = 300.0
-#@export var JUMP_VELOCITY = -400.0
-#
-#func _ready():
-	#Global.playerBody = self
-#
-#func _physics_process(delta: float) -> void:
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
-#
-	## Handle jump.
-	#if Input.is_action_just_pressed("jump") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-#
-	#var direction := Input.get_axis("left", "right")
-	#if direction:
-		#velocity.x = direction * SPEED
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
-	#
-	#
-	#move_and_slide()
-	#handle_movement_animation(direction)
-#
-#func handle_movement_animation(dir):
-	#if is_on_floor():
-		#if !velocity:
-			#animated_sprite.play("idle")
-		#if velocity:
-			#animated_sprite.play("run")
-			#toggle_flip_sprite(dir)
-	#elif !is_on_floor():
-		#animated_sprite.play("fall")
-#
-#func toggle_flip_sprite(dir):
-	#if dir == 1:
-		#animated_sprite.flip_h = false
-	#if dir == -1:
-		#animated_sprite.flip_h = true
-	

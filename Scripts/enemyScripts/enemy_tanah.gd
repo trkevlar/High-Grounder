@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name enemyTanah
 
+var owner_spawner: Node = null
+
 const speed = 30
 var isEnemyChase: bool
 
@@ -11,7 +13,7 @@ var healthMin = 0
 
 var dead: bool = false
 var takingDamage: bool = false
-var damageToDeal = 20
+var damageToDeal = 10
 var isDealingDamage: bool = false
 var can_attack: bool = true
 
@@ -25,6 +27,21 @@ var playerInArea = false
 
 var takingDamageTimer: float = 0.0
 var takingDamageDuration: float = 0.8
+signal enemy_died
+
+func _ready():
+	$AnimatedSprite2D.connect("frame_changed", Callable(self, "_on_frame_changed"))
+
+func _on_frame_changed():
+	pass
+	#if $AnimatedSprite2D.animation == "attack":
+		#if $AnimatedSprite2D.frame == 3 and isDealingDamage:
+			#deal_damage_to_player()
+			
+func deal_damage_to_player():
+	if playerInArea and not dead and not takingDamage:
+		target_player.takeDamage(damageToDeal)
+		isDealingDamage = false
 
 func _process(delta):
 	if takingDamage:
@@ -67,21 +84,24 @@ func move(delta):
 
 func handleAnimation():
 	var animatedSprite = $AnimatedSprite2D
-	if !dead and !takingDamage:
-		animatedSprite.play("run")
-		if dir.x == -1:
-			animatedSprite.flip_h = false
-		elif dir.x == 1:
-			animatedSprite.flip_h = true
-	elif !dead and takingDamage and !isDealingDamage:
-		animatedSprite.play("hit")
-	elif dead and isRoaming:
+
+	if dead and isRoaming:
 		isRoaming = false
 		animatedSprite.play("death")
+		emit_signal("enemy_died")
 		await get_tree().create_timer(0.8).timeout
 		handleDeath()
-	#elif !dead and isDealingDamage:
-		#animatedSprite.play("attack")
+
+	elif !dead and takingDamage and !isDealingDamage:
+		animatedSprite.play("hit")
+
+	elif !dead and !takingDamage and !isDealingDamage:
+		animatedSprite.play("run")
+
+	if dir.x == -1:
+		animatedSprite.flip_h = false
+	elif dir.x == 1:
+		animatedSprite.flip_h = true
 
 func handleDeath():
 	self.queue_free()
@@ -110,34 +130,35 @@ func takeDamage(damage):
 	else:
 		takingDamage = true
 		takingDamageTimer = takingDamageDuration
-	print(str(self), "Health sekarang = ", health)
-
+		
 func _on_enemy_tanah_deal_damage_area_entered(area: Area2D) -> void:
 	if area == Global.playerhitBox and not dead and not takingDamage:
-		start_attacking()  # Mulai serangan berulang
-		
+		start_attacking()
+
+
 func _on_enemy_tanah_deal_damage_area_exited(area: Area2D) -> void:
 	if area == Global.playerhitBox:
 		stop_attacking() 
-
+		
 func start_attacking():
 	playerInArea = true
 	try_attack_loop()
 
 func stop_attacking():
 	playerInArea = false
-	isDealingDamage = false  # Stop animasi attack
-
+	isDealingDamage = false
+	
 func try_attack_loop():
 	if not playerInArea or dead or takingDamage or not can_attack:
 		return
-	
-	# Trigger serangan
+
 	isDealingDamage = true
 	can_attack = false
 	
-	# Beri cooldown sebelum serangan berikutnya
-	await get_tree().create_timer(0.8).timeout
-	
+	$AnimatedSprite2D.play("run")
+	await $AnimatedSprite2D.animation_finished  # Tunggu animasi selesai
+
+	isDealingDamage = false  # Reset setelah animasi selesai
 	can_attack = true
-	try_attack_loop()  # Cek lagi apakah masih dalam jangkauan
+
+	try_attack_loop()

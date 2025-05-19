@@ -13,6 +13,13 @@ var crabDamageAmount: int
 var enemyTanahDamageZone: Area2D
 var enemyTanahDamageAmount: int
 
+var enemyMushroomDamageZone: Area2D
+var enemyMushroomDamageAmount: int
+
+var currentWave: int
+var movingToNextWave: bool
+var waveClear: bool
+
 var player_skills: Array[PlayerSkill] = []
 
 func save_player_skill(skill: PlayerSkill):
