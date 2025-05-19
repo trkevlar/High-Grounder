@@ -188,7 +188,7 @@ func setDamage(attack_type):
 	
 	if attack_type == "attack":
 		base_attack_damage = 8
-	elif attack_type == "attack2":
+	elif attack_type == "attack2": 
 		base_attack_damage = 5
 	elif attack_type == "airAttack":
 		base_attack_damage = 10
