@@ -35,17 +35,17 @@ func reset():
 	jump_velocity = -350.0
 	skills.clear()
 
-func save_from_player(player: CharacterBody2D):
+func save_from_player(playera: CharacterBody2D):
 	current_level += 1
-	health = player.health
-	health_max = player.healthMax
-	has_sword = player.has_sword
+	health = playera.health
+	health_max = playera.healthMax
+	has_sword = playera.has_sword
 	#position = player.global_position
-	skills = player.active_skills.duplicate(true)
+	skills = playera.active_skills.duplicate(true)
 
-func apply_to_player(player: CharacterBody2D):
-	player.health = health
-	player.healthMax = health_max
-	player.has_sword = has_sword
+func apply_to_player(playera: CharacterBody2D):
+	playera.health = health
+	playera.healthMax = health_max
+	playera.has_sword = has_sword
 	#player.global_position = position
-	player.active_skills = skills.duplicate(true)
+	playera.active_skills = skills.duplicate(true)

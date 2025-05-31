@@ -5358,4 +5358,4 @@ tile_map_data = PackedByteArray("AAAAAP//AgAVABYAAAAAAAAAAgAOABcAAAAAAAEAAgAVABg
 tile_set = SubResource("TileSet_iec7a")
 
 [node name="Sword" parent="." instance=ExtResource("10_eu6wj")]
-position = Vector2(259, -250)
+position = Vector2(228, -4)
