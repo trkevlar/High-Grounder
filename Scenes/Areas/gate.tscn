@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbe634s73fa0k"]
+
+[ext_resource type="Texture2D" uid="uid://cu06xq1dd0y6n" path="res://Assets/PixelFantasy_Caves_1.0/gates.png" id="1_5e8rq"]
+
+[sub_resource type="GDScript" id="GDScript_owq3o"]
+script/source = "extends Area2D
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"Player\"):
+		$AnimationPlayer.play(\"open_gate\")
+		
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52g25"]
+size = Vector2(61, 147.75)
+
+[sub_resource type="Animation" id="Animation_0800p"]
+resource_name = "open_gate"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, 0), Vector2(4, 50)]
+}
+
+[sub_resource type="Animation" id="Animation_x2pmf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_26qfv"]
+_data = {
+"RESET": SubResource("Animation_x2pmf"),
+"open_gate": SubResource("Animation_0800p")
+}
+
+[node name="Gate" type="Area2D"]
+script = SubResource("GDScript_owq3o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 50)
+scale = Vector2(1.07746, 1.27358)
+texture = ExtResource("1_5e8rq")
+hframes = 3
+vframes = 2
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_52g25")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_26qfv")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
