@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://bnxg0hhs6nudg"]
 
-[ext_resource type="Script" uid="uid://duf2ud1vr1oxg" path="res://Scripts/enemyScripts/enemy_tanah.gd" id="1_64eii"]
+[ext_resource type="Script" path="res://Scripts/enemyScripts/enemy_tanah.gd" id="1_64eii"]
 [ext_resource type="Texture2D" uid="uid://ckjr2fv3se6p5" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 01.png" id="2_th4gb"]
 [ext_resource type="Texture2D" uid="uid://b8ocxja33kxnv" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 02.png" id="3_diki0"]
 [ext_resource type="Texture2D" uid="uid://bn38y1rgg0ugb" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 03.png" id="4_4vf4j"]

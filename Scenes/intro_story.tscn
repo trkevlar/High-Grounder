@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://du3prgy13sgk7"]
+
+[ext_resource type="Script" path="res://Scripts/intro_story.gd" id="1_bjw5v"]
+[ext_resource type="VideoStream" path="res://Assets/story/opening game.ogv" id="1_nhecm"]
+[ext_resource type="Script" path="res://Scripts/label.gd" id="3_x8ygm"]
+
+[node name="IntroStory" type="Node2D"]
+script = ExtResource("1_bjw5v")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+custom_minimum_size = Vector2(10, 10)
+offset_left = 4.0
+offset_right = 1924.0
+offset_bottom = 1088.0
+scale = Vector2(0.6, 0.6)
+stream = ExtResource("1_nhecm")
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 898.0
+offset_top = 11.0
+offset_right = 1134.0
+offset_bottom = 41.0
+text = "Press Enter To Skip"
+horizontal_alignment = 2
+script = ExtResource("3_x8ygm")
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

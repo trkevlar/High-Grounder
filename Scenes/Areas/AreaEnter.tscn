@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2xqid2odl0tg"]
 
-[ext_resource type="Script" uid="uid://biinmtw3r7qxh" path="res://Scenes/Areas/Spawner1.gd" id="1_apkda"]
+[ext_resource type="Script" path="res://Scenes/Areas/Spawner1.gd" id="1_apkda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apkda"]
 size = Vector2(198, 12)

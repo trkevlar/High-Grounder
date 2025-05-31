@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=3 uid="uid://dleq5dgqfwlft"]
 
-[ext_resource type="Script" uid="uid://csur0gy8ok8ut" path="res://Scripts/characterScripts/player.gd" id="1_g7okg"]
+[ext_resource type="Script" path="res://Scripts/characterScripts/player.gd" id="1_g7okg"]
 [ext_resource type="Texture2D" uid="uid://dl1n17hpb0tot" path="res://Assets/Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/19-Air Attack 2/Air Attack 2 01.png" id="2_2gxrt"]
 [ext_resource type="Texture2D" uid="uid://dcxstw6hsupxr" path="res://Assets/Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Attack 2 01.png" id="2_t4nj7"]
 [ext_resource type="Texture2D" uid="uid://b67erok4bfwej" path="res://Assets/Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 02.png" id="3_3eean"]
@@ -227,7 +227,7 @@ height = 14.0
 radius = 8.0
 height = 18.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 2
 script = ExtResource("1_g7okg")
 

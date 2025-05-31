@@ -7,7 +7,7 @@ class_name player
 
 var base_speed = 120.0
 var current_speed = base_speed
-@export var JUMP_VELOCITY = -300.0
+@export var JUMP_VELOCITY = -350.0
 
 @export var attacking = false
 var attackType: String
