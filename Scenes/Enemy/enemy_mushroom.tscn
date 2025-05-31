@@ -1,6 +1,6 @@
 [gd_scene load_steps=40 format=3 uid="uid://b1i7a75a31q55"]
 
-[ext_resource type="Script" uid="uid://w048iukrhstu" path="res://Scenes/Enemy/enemy_mushroom.gd" id="1_6ssa3"]
+[ext_resource type="Script" uid="uid://w048iukrhstu" path="res://Scripts/enemyScripts/enemy_mushroom.gd" id="1_6ssa3"]
 [ext_resource type="Texture2D" uid="uid://h0lb4udniltl" path="res://Assets/Sprites/enemy/Monsters_Creatures_Fantasy/Mushroom/Attack.png" id="1_oycnx"]
 [ext_resource type="Texture2D" uid="uid://bweaoe6p32kpy" path="res://Assets/Sprites/enemy/Monsters_Creatures_Fantasy/Mushroom/Death.png" id="2_gvum0"]
 [ext_resource type="Texture2D" uid="uid://dkr8wpledvsbn" path="res://Assets/Sprites/enemy/Monsters_Creatures_Fantasy/Mushroom/Take Hit.png" id="3_6ssa3"]

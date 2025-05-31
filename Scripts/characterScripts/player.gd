@@ -19,11 +19,15 @@ var dead: bool
 var canTakingDamage: bool
 var is_taking_damage = false
 
+var has_sword: bool = false
+
 var is_hit: bool = false
 
 var active_skills: Array[PlayerSkill] = []
 
 func _ready():
+	health = Global.player_health
+	has_sword = Global.player_has_sword
 	Global.load_player_skills(self)
 	Global.playerBody = self
 	dead = false
@@ -31,6 +35,9 @@ func _ready():
 	Global.playerAlive = true
 	Global.playerDamageZone = attack_area
 	Global.playerhitBox = $playerHitbox
+
+	# Muat data dari PlayerStats (jika ada)
+	PlayerStats.apply_to_player(self)
 	
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -51,7 +58,7 @@ func _physics_process(delta: float) -> void:
 					animation.play("jump")
 				if velocity.y > 0:
 					animation.play("fall")
-			if Input.is_action_just_pressed("attack") or Input.is_action_just_pressed("attack2"):
+			if has_sword and (Input.is_action_just_pressed("attack") or Input.is_action_just_pressed("attack2")):
 				attacking = true
 				if Input.is_action_just_pressed("attack") and is_on_floor():
 					attackType = "attack"
@@ -76,15 +83,18 @@ func checkHitbox():
 	var totalDamage = 0
 	for hitbox in hitboxAreas:
 		var parent = hitbox.get_parent()
-		if parent is flyEnemy and !parent.dead:
-			if parent.isDealingDamage:
-				totalDamage += Global.crabDamageAmount
-		elif parent is enemyTanah and !parent.dead:
-			if parent.isDealingDamage:
-				totalDamage += Global.enemyTanahDamageAmount
+		if parent is flyEnemy and parent.isDealingDamage and !parent.dead:
+			takeDamage(Global.crabDamageAmount)
+			parent.isDealingDamage = false
+		elif parent is enemyTanah and parent.isDealingDamage and !parent.dead:
+			takeDamage(Global.enemyTanahDamageAmount)
+			parent.isDealingDamage = false
 		elif parent is enemyMushroom and !parent.dead:
 			if parent.isDealingDamage:
 				totalDamage += Global.enemyMushroomDamageAmount
+		#elif parent is enemyHuman and !parent.dead:
+			#if parent.isDealingDamage:
+				#totalDamage += Global.enemyHumanDamageAmount
 	
 	if totalDamage > 0 and canTakingDamage:
 		takeDamage(totalDamage)
@@ -145,6 +155,9 @@ func handleDeathAnimation():
 	$Camera2D.zoom.x = 4
 	$Camera2D.zoom.y = 4
 	await get_tree().create_timer(3.5).timeout
+	
+	PlayerStats.reset()
+	
 	self.queue_free()
 
 func takeDamageCooldown(waitTime):
@@ -223,3 +236,8 @@ func calculate_final_damage(base_attack_damage: int) -> int:
 			health = min(health + heal_amount, healthMax)
 	
 	return final_damage
+
+
+func pick_up_sword():
+	has_sword = true
+	print("Sword picked up!")

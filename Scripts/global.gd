@@ -6,6 +6,8 @@ var playerAlive: bool
 var playerDamageZone: Area2D
 var playerDamageAmount: int
 var playerhitBox: Area2D
+var player_health: int = 100
+var player_has_sword: bool = false
 
 var crabDamageZone: Area2D
 var crabDamageAmount: int

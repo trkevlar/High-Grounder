@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkd8ppq3v6lfj"]
+
+[ext_resource type="PackedScene" uid="uid://cigxw0ju2jq0d" path="res://Scenes/Areas/game.tscn" id="1_n8wvh"]
+[ext_resource type="PackedScene" uid="uid://wfdh33fs473d" path="res://Scenes/item/sword.tscn" id="2_oe57o"]
+
+[node name="Game" instance=ExtResource("1_n8wvh")]
+
+[node name="Sword" parent="." index="1" instance=ExtResource("2_oe57o")]
+position = Vector2(395, -705)
+
+[node name="Player" parent="." index="2"]
+position = Vector2(395, -675)
+
+[node name="SpawnEnemy2" parent="Spawner/Level3" index="1" node_paths=PackedStringArray("spawn_positions")]
+spawn_positions = []

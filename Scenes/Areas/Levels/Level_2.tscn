@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bs83v2qm6eqm7" path="res://Assets/PixelFantasy_Caves_1.0/background3.png" id="1_0ydif"]
 [ext_resource type="Texture2D" uid="uid://d2hlv7cfvcubq" path="res://Assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="2_4f308"]
 [ext_resource type="Texture2D" uid="uid://dcav6st2jh5o7" path="res://Assets/PixelFantasy_Caves_1.0/background1.png" id="3_7ydle"]
-[ext_resource type="PackedScene" uid="uid://b2xqid2odl0tg" path="res://Scenes/Areas/AreaEnter.tscn" id="4_3hn63"]
+[ext_resource type="PackedScene" uid="uid://dfdrr813wx66x" path="res://Scenes/Areas/SpawnEnemy1.tscn" id="4_3hn63"]
 [ext_resource type="PackedScene" uid="uid://dleq5dgqfwlft" path="res://Scenes/Areas/player.tscn" id="4_4f308"]
 [ext_resource type="PackedScene" uid="uid://bnxg0hhs6nudg" path="res://Scenes/Enemy/enemy_tanah.tscn" id="5_vdg3r"]
 [ext_resource type="PackedScene" uid="uid://oxy2nug8vrx8" path="res://Scenes/Enemy/Barrier.tscn" id="6_uwx2y"]
@@ -5771,29 +5771,45 @@ tile_set = SubResource("TileSet_plno7")
 
 [node name="Tilemaps" type="Node" parent="."]
 
-[node name="SpawnEnemy1" parent="Tilemaps" node_paths=PackedStringArray("spawn_positions", "wall_barrier") instance=ExtResource("4_3hn63")]
+[node name="Enemy" type="Node" parent="Tilemaps"]
+
+[node name="SpawnEnemy1" parent="Tilemaps/Enemy" node_paths=PackedStringArray("spawn_positions", "wall_barrier") instance=ExtResource("4_3hn63")]
 position = Vector2(1024, 72)
 enemy_scene = ExtResource("5_vdg3r")
 spawn_positions = [NodePath("Marker2D2")]
+max_enemies_alive = 4
+max_enemies_total = 4
+spawn_interval = 1.0
 wall_barrier = NodePath("Barrier2")
 
-[node name="Marker2D2" type="Marker2D" parent="Tilemaps/SpawnEnemy1"]
+[node name="Marker2D2" type="Marker2D" parent="Tilemaps/Enemy/SpawnEnemy1"]
 position = Vector2(319, -248)
 
-[node name="Barrier2" parent="Tilemaps/SpawnEnemy1" instance=ExtResource("6_uwx2y")]
+[node name="Barrier2" parent="Tilemaps/Enemy/SpawnEnemy1" instance=ExtResource("6_uwx2y")]
 position = Vector2(145, -459)
 
-[node name="SpawnEnemy2" parent="Tilemaps" node_paths=PackedStringArray("spawn_positions", "wall_barrier") instance=ExtResource("4_3hn63")]
+[node name="SpawnEnemy2" parent="Tilemaps/Enemy" node_paths=PackedStringArray("spawn_positions", "wall_barrier") instance=ExtResource("4_3hn63")]
 position = Vector2(498, -1270)
 enemy_scene = ExtResource("7_x2g6r")
-spawn_positions = [NodePath("Marker2D2")]
+spawn_positions = [NodePath("Marker2D2"), NodePath("Marker2D")]
+max_enemies_alive = 3
+max_enemies_total = 3
+spawn_interval = 1.5
 wall_barrier = NodePath("Barrier2")
 
-[node name="Marker2D2" type="Marker2D" parent="Tilemaps/SpawnEnemy2"]
+[node name="Marker2D2" type="Marker2D" parent="Tilemaps/Enemy/SpawnEnemy2"]
 position = Vector2(481, -248)
 
-[node name="Barrier2" parent="Tilemaps/SpawnEnemy2" instance=ExtResource("6_uwx2y")]
+[node name="Marker2D" type="Marker2D" parent="Tilemaps/Enemy/SpawnEnemy2"]
+
+[node name="Barrier2" parent="Tilemaps/Enemy/SpawnEnemy2" instance=ExtResource("6_uwx2y")]
 position = Vector2(-491, -311)
+
+[node name="EnemyTerbang2" parent="Tilemaps/Enemy" instance=ExtResource("7_x2g6r")]
+position = Vector2(341, -96)
+
+[node name="EnemyTerbang" parent="Tilemaps/Enemy" instance=ExtResource("7_x2g6r")]
+position = Vector2(623, -127)
 
 [node name="Ground" type="TileMapLayer" parent="Tilemaps"]
 position = Vector2(41, 9)
@@ -5807,4 +5823,5 @@ tile_set = SubResource("TileSet_plno7")
 position = Vector2(21, 1)
 
 [node name="Camera2D" type="Camera2D" parent="Tilemaps/Player"]
-zoom = Vector2(2, 2)
+zoom = Vector2(2.8, 2.8)
+position_smoothing_enabled = true

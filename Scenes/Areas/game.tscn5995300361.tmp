@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cigxw0ju2jq0d"]
+[gd_scene load_steps=19 format=4 uid="uid://cigxw0ju2jq0d"]
 
 [ext_resource type="Texture2D" uid="uid://buwljfp3x1yfu" path="res://Assets/Sprites/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_17fa1"]
 [ext_resource type="PackedScene" uid="uid://dleq5dgqfwlft" path="res://Scenes/Areas/player.tscn" id="2_ois2y"]
@@ -9,11 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://d2kt7fnk4ucut" path="res://Scenes/item/strength_up.tscn" id="9_222pt"]
 [ext_resource type="PackedScene" uid="uid://dd4d8hwyxmosg" path="res://Scenes/Enemy/enemyTerbang.tscn" id="9_morhi"]
 [ext_resource type="PackedScene" uid="uid://bgf5g6pm2fgje" path="res://Scenes/Areas/spawn_enemy_2.tscn" id="10_bqcws"]
-[ext_resource type="PackedScene" uid="uid://dfdrr813wx66x" path="res://Scenes/Areas/SpawnEnemy1.tscn" id="10_morhi"]
+[ext_resource type="PackedScene" uid="uid://dfdrr813wx66x" path="res://Scenes/Areas/AreaEnter.tscn" id="10_morhi"]
 [ext_resource type="PackedScene" uid="uid://oxy2nug8vrx8" path="res://Scenes/Enemy/Barrier.tscn" id="11_bqcws"]
+[ext_resource type="PackedScene" uid="uid://wfdh33fs473d" path="res://Scenes/item/sword.tscn" id="12_pvwvu"]
 [ext_resource type="PackedScene" uid="uid://bl2v53ssl8hcb" path="res://Scenes/Areas/Platform.tscn" id="13_bqcws"]
-[ext_resource type="PackedScene" uid="uid://wfdh33fs473d" path="res://Scenes/item/sword.tscn" id="14_wr2de"]
-[ext_resource type="PackedScene" uid="uid://b1i7a75a31q55" path="res://Scenes/Enemy/enemy_mushroom.tscn" id="14_xcdot"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ois2y"]
 texture = ExtResource("1_17fa1")
@@ -383,7 +382,8 @@ limit_bottom = 398
 position_smoothing_enabled = true
 
 [node name="enemyHuman1" parent="." instance=ExtResource("3_bqcws")]
-position = Vector2(584, -298)
+position = Vector2(56, -31)
+attack_range = 30.0
 
 [node name="EnemyTanah" parent="." instance=ExtResource("6_wyfrx")]
 position = Vector2(553, -10)
@@ -484,11 +484,5 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="Sword" parent="." instance=ExtResource("14_wr2de")]
+[node name="Sword" parent="." instance=ExtResource("12_pvwvu")]
 position = Vector2(-35, -17)
-
-[node name="enemyHuman2" parent="." instance=ExtResource("3_bqcws")]
-position = Vector2(161, -27)
-
-[node name="enemyMushroom" parent="." instance=ExtResource("14_xcdot")]
-position = Vector2(60, -37)

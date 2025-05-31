@@ -1,19 +1,19 @@
 extends CharacterBody2D
 
-class_name enemyTanah
+class_name enemyMushroom
 
 var owner_spawner: Node = null
 
 const speed = 30
 var isEnemyChase: bool
 
-var health = 80
+var health = 100
 var healthMax = 80
 var healthMin = 0
 
 var dead: bool = false
 var takingDamage: bool = false
-var damageToDeal = 6
+var damageToDeal = 50
 var isDealingDamage: bool = false
 var can_attack: bool = true
 
@@ -33,16 +33,14 @@ func _ready():
 	$AnimatedSprite2D.connect("frame_changed", Callable(self, "_on_frame_changed"))
 
 func _on_frame_changed():
-	pass
-	#if $AnimatedSprite2D.animation == "attack":
-		#if $AnimatedSprite2D.frame == 3 and isDealingDamage:
-			#deal_damage_to_player()
+	if $AnimatedSprite2D.animation == "run":
+		if $AnimatedSprite2D.frame == 8 and isDealingDamage:
+			deal_damage_to_player()
 			
 func deal_damage_to_player():
-	print("Attempting to deal damage")
-	if target_player and not dead and not takingDamage:
-		print("Dealing damage once")
+	if playerInArea and not dead and not takingDamage:
 		target_player.takeDamage(damageToDeal)
+		isDealingDamage = false
 
 func _process(delta):
 	if takingDamage:
@@ -58,8 +56,8 @@ func _process(delta):
 	elif !Global.playerAlive:
 		isEnemyChase = false
 	
-	Global.enemyTanahDamageAmount = damageToDeal
-	Global.enemyTanahDamageZone = $enemyTanahDealDamage
+	Global.enemyMushroomDamageAmount = damageToDeal
+	Global.enemyMushroomDamageZone = $enemyTanahDealDamage
 	
 	target_player = Global.playerBody
 	
@@ -95,14 +93,16 @@ func handleAnimation():
 
 	elif !dead and takingDamage and !isDealingDamage:
 		animatedSprite.play("hit")
+		if playerInArea and !dead:
+			try_attack_loop()
 
 	elif !dead and !takingDamage and !isDealingDamage:
 		animatedSprite.play("run")
 
 	if dir.x == -1:
-		animatedSprite.flip_h = false
-	elif dir.x == 1:
 		animatedSprite.flip_h = true
+	elif dir.x == 1:
+		animatedSprite.flip_h = false
 
 func handleDeath():
 	self.queue_free()
@@ -156,16 +156,11 @@ func try_attack_loop():
 	isDealingDamage = true
 	can_attack = false
 	
-	$AnimatedSprite2D.play("run")
+	$AnimatedSprite2D.play("attack")
 	await $AnimatedSprite2D.animation_finished
-	
-	# Hanya deal damage di frame tertentu (contoh: frame 3)
-	if playerInArea and isDealingDamage:  # Pastikan masih dalam keadaan menyerang
-		deal_damage_to_player()
-	
-	isDealingDamage = false
-	await get_tree().create_timer(0.5).timeout  # Cooldown sebelum serangan berikutnya
+	await get_tree().create_timer(0.6).timeout
+
+	isDealingDamage = false  # Reset setelah animasi selesai
 	can_attack = true
-	
-	if playerInArea:  # Jika player masih dalam area, lanjutkan serangan
-		try_attack_loop()
+
+	try_attack_loop()

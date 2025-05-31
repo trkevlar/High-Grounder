@@ -17,7 +17,7 @@ var healthMin = 0
 var dead = false
 var takingDamage = false
 var isRoaming: bool
-var damageToDeal = 10
+var damageToDeal =4
 
 var chase_threshold_distance = 10.0
 
@@ -31,17 +31,6 @@ signal enemy_died
 
 func _ready():
 	is_crab_chase = true
-
-func _on_frame_changed():
-	if animatedSprite.animation == "run" and animatedSprite.frame == 3 and isDealingDamage:
-		deal_damage_to_player()
-
-func deal_damage_to_player():
-	if not is_instance_valid(target_player):
-		return
-	if playerInArea and !dead and !takingDamage and isDealingDamage:
-		target_player.takeDamage(damageToDeal)
-		isDealingDamage = false
 
 func _process(delta):
 	Global.crabDamageAmount = damageToDeal
@@ -154,10 +143,14 @@ func try_attack_loop():
 	
 	animatedSprite.play("run")
 	await animatedSprite.animation_finished
+	
+	# Hanya set flag, biarkan player yang handle damage
 	await get_tree().create_timer(0.5).timeout
-
+	
 	isDealingDamage = false
 	can_attack = true
 
 	if playerInArea:
 		try_attack_loop()
+
+# Hapus fungsi _on_frame_changed() dan deal_damage_to_player()

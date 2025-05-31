@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://wfdh33fs473d"]
+
+[ext_resource type="Script" uid="uid://damro5kigmncl" path="res://Scripts/itemScripts/sword.gd" id="1_t5m5a"]
+[ext_resource type="Texture2D" uid="uid://bs0mpb12vmc5l" path="res://Assets/Sprites/weapon bunny.png" id="2_ee4td"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ee4td"]
+radius = 9.0
+
+[node name="Sword" type="Area2D"]
+script = ExtResource("1_t5m5a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ee4td")
+region_enabled = true
+region_rect = Rect2(162, 69, 25, 23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_ee4td")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
