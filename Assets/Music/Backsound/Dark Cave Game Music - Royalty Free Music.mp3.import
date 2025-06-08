@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dera7vggag5tn"
+path="res://.godot/imported/Dark Cave Game Music - Royalty Free Music.mp3-cc83d615175cf12228d15aaadaf558c9.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Backsound/Dark Cave Game Music - Royalty Free Music.mp3"
+dest_files=["res://.godot/imported/Dark Cave Game Music - Royalty Free Music.mp3-cc83d615175cf12228d15aaadaf558c9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

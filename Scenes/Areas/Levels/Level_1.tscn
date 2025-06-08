@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bs4bvwqg4pv7u"]
+[gd_scene load_steps=19 format=4 uid="uid://bs4bvwqg4pv7u"]
 
 [ext_resource type="Texture2D" uid="uid://bs83v2qm6eqm7" path="res://Assets/PixelFantasy_Caves_1.0/background3.png" id="1_45wer"]
 [ext_resource type="Texture2D" uid="uid://d2hlv7cfvcubq" path="res://Assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="2_y4fil"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cy2o3lv2skyms" path="res://Scenes/Enemy/enemy_human_1.tscn" id="8_yadyh"]
 [ext_resource type="PackedScene" uid="uid://q7ttlx414v26" path="res://Scenes/Areas/Levels/next_level.tscn" id="9_5p337"]
 [ext_resource type="PackedScene" uid="uid://wfdh33fs473d" path="res://Scenes/item/sword.tscn" id="10_eu6wj"]
+[ext_resource type="PackedScene" uid="uid://jxlf8wp4wrfb" path="res://Scenes/pause_menu.tscn" id="12_d8mba"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvprh"]
 texture = ExtResource("1_45wer")
@@ -5359,3 +5360,7 @@ tile_set = SubResource("TileSet_iec7a")
 
 [node name="Sword" parent="." instance=ExtResource("10_eu6wj")]
 position = Vector2(228, -4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_d8mba")]

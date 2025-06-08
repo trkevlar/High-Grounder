@@ -1,0 +1,223 @@
+[gd_scene load_steps=12 format=3 uid="uid://jxlf8wp4wrfb"]
+
+[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_a5yxl"]
+[ext_resource type="Shader" path="res://Scenes/pause_menu.gdshader" id="2_ni8oe"]
+[ext_resource type="FontFile" uid="uid://18sletis5tt4" path="res://Assets/Fonts/Symtext.ttf" id="4_w0aji"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3cqa8"]
+shader = ExtResource("2_ni8oe")
+shader_parameter/lod = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qx2a4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8rup"]
+bg_color = Color(0.666569, 0.666569, 0.666569, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.525101, 0.525101, 0.525101, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xo2w"]
+bg_color = Color(0.374139, 0.374139, 0.374139, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.525101, 0.525101, 0.525101, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8xvw"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.525101, 0.525101, 0.525101, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="Animation" id="Animation_y4jyb"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.82]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fo6uh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oh4r1"]
+_data = {
+"RESET": SubResource("Animation_fo6uh"),
+"blur": SubResource("Animation_y4jyb")
+}
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a5yxl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_3cqa8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.5
+offset_top = -177.0
+offset_right = 170.5
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 36
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_w0aji")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qx2a4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f8rup")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5xo2w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8xvw")
+text = "Resume"
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_w0aji")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qx2a4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f8rup")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5xo2w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8xvw")
+text = "restart"
+
+[node name="Button3" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_w0aji")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qx2a4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f8rup")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5xo2w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8xvw")
+text = "Main menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oh4r1")
+}
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button2" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button3" to="." method="_on_exit_pressed"]

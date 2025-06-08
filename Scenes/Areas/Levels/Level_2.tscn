@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://darhku83fkq0u"]
+[gd_scene load_steps=17 format=4 uid="uid://darhku83fkq0u"]
 
 [ext_resource type="Texture2D" uid="uid://bs83v2qm6eqm7" path="res://Assets/PixelFantasy_Caves_1.0/background3.png" id="1_0ydif"]
 [ext_resource type="Texture2D" uid="uid://d2hlv7cfvcubq" path="res://Assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="2_4f308"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bnxg0hhs6nudg" path="res://Scenes/Enemy/enemy_tanah.tscn" id="5_vdg3r"]
 [ext_resource type="PackedScene" uid="uid://oxy2nug8vrx8" path="res://Scenes/Enemy/Barrier.tscn" id="6_uwx2y"]
 [ext_resource type="PackedScene" uid="uid://dd4d8hwyxmosg" path="res://Scenes/Enemy/enemyTerbang.tscn" id="7_x2g6r"]
+[ext_resource type="PackedScene" uid="uid://wfdh33fs473d" path="res://Scenes/item/sword.tscn" id="10_1etrk"]
+[ext_resource type="PackedScene" uid="uid://bkki0rg4c3j2e" path="res://Scenes/Enemy/enemy_boss_terbang.tscn" id="10_tixbg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5x8r4"]
 texture = ExtResource("1_0ydif")
@@ -5825,3 +5827,17 @@ position = Vector2(21, 1)
 [node name="Camera2D" type="Camera2D" parent="Tilemaps/Player"]
 zoom = Vector2(2.8, 2.8)
 position_smoothing_enabled = true
+
+[node name="SpawnEnemy2" parent="." node_paths=PackedStringArray("spawn_positions") instance=ExtResource("4_3hn63")]
+position = Vector2(404, -1907)
+enemy_scene = ExtResource("10_tixbg")
+spawn_positions = [NodePath("Marker2D")]
+max_enemies_alive = 1
+max_enemies_total = 1
+spawn_interval = 1.0
+
+[node name="Marker2D" type="Marker2D" parent="SpawnEnemy2"]
+position = Vector2(623, -8)
+
+[node name="Sword" parent="." instance=ExtResource("10_1etrk")]
+position = Vector2(228, -4)

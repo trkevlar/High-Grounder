@@ -161,6 +161,7 @@ func try_attack_loop():
 	
 	# Hanya deal damage di frame tertentu (contoh: frame 3)
 	if playerInArea and isDealingDamage:  # Pastikan masih dalam keadaan menyerang
+		
 		deal_damage_to_player()
 	
 	isDealingDamage = false

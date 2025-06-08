@@ -1,13 +1,24 @@
-[gd_scene load_steps=36 format=3 uid="uid://dleq5dgqfwlft"]
+[gd_scene load_steps=38 format=3 uid="uid://dleq5dgqfwlft"]
 
-[ext_resource type="Script" uid="uid://csur0gy8ok8ut" path="res://Scripts/characterScripts/player.gd" id="1_g7okg"]
-[ext_resource type="Texture2D" uid="uid://dl1n17hpb0tot" path="res://Assets/Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/19-Air Attack 2/Air Attack 2 01.png" id="2_2gxrt"]
-[ext_resource type="Texture2D" uid="uid://dngvlt60xhocr" path="res://Assets/Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/19-Air Attack 2/Air Attack 2 02.png" id="3_gylx4"]
-[ext_resource type="Texture2D" uid="uid://cjmxfl4fq4rm2" path="res://Assets/Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/19-Air Attack 2/Air Attack 2 03.png" id="4_efoa5"]
+[ext_resource type="Script" path="res://Scripts/characterScripts/player.gd" id="1_g7okg"]
 [ext_resource type="Texture2D" uid="uid://bs0mpb12vmc5l" path="res://Assets/Sprites/weapon bunny.png" id="5_0yx06"]
+[ext_resource type="AudioStream" uid="uid://c785bix6u10ta" path="res://Assets/Music/sfx/sword sfx(true).mp3" id="6_f2gsr"]
+[ext_resource type="AudioStream" uid="uid://c1d5gk6r823y6" path="res://Assets/Music/sfx/hit_sound.mp3" id="7_l5ir4"]
 [ext_resource type="Texture2D" uid="uid://dtydw0qs48dkm" path="res://Assets/Sprites/fall sprite.png" id="8_y8fpx"]
 [ext_resource type="PackedScene" uid="uid://bvke5ytd4g5gk" path="res://Scenes/item/progress_bar.tscn" id="13_dd8hs"]
 [ext_resource type="Texture2D" uid="uid://bf1m6emniausf" path="res://Assets/Sprites/character/Character base bunny1.png" id="21_wsa0b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jo5r"]
+atlas = ExtResource("5_0yx06")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqhxh"]
+atlas = ExtResource("5_0yx06")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8wxx"]
+atlas = ExtResource("5_0yx06")
+region = Rect2(128, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xgjqa"]
 atlas = ExtResource("5_0yx06")
@@ -105,13 +116,13 @@ region = Rect2(160, 32, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2gxrt")
+"texture": SubResource("AtlasTexture_4jo5r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_gylx4")
+"texture": SubResource("AtlasTexture_kqhxh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_efoa5")
+"texture": SubResource("AtlasTexture_n8wxx")
 }],
 "loop": false,
 "name": &"airAttack",
@@ -244,7 +255,7 @@ script = ExtResource("1_g7okg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_0yx06")
-animation = &"attack"
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
@@ -269,5 +280,13 @@ offset_left = -9.0
 offset_top = -33.0
 offset_right = 10.0
 offset_bottom = -28.0
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="sword_slash" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_f2gsr")
+
+[node name="enemy_hit" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("7_l5ir4")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

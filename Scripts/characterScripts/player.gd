@@ -4,6 +4,8 @@ class_name player
 #@onready var animation = $AnimationPlayer
 @onready var animation = $AnimatedSprite2D
 @onready var attack_area = $AttackArea
+@onready var sword_sfx = $SFX/sword_slash
+@onready var hit_sfx = $SFX/enemy_hit
 
 var base_speed = 120.0
 var current_speed = base_speed
@@ -20,6 +22,7 @@ var canTakingDamage: bool
 var is_taking_damage = false
 
 var has_sword: bool = false
+var has_key: bool = false
 
 var is_hit: bool = false
 
@@ -107,6 +110,7 @@ func takeDamage(damage):
 	health -= damage
 	print(health)
 	animation.play("hit")
+	hit_sfx.play()
 	canTakingDamage = false 
 	
 	var pre_hit_velocity = velocity
@@ -159,6 +163,7 @@ func handleDeathAnimation():
 	PlayerStats.reset()
 	
 	self.queue_free()
+	
 
 func takeDamageCooldown(waitTime):
 	canTakingDamage = false
@@ -177,6 +182,7 @@ func handleAttackAnimation(attack_type):
 	if attacking:
 		var animasiJalan = str(attack_type)
 		animation.play(animasiJalan)
+		sword_sfx.play()
 		toggleDamageCollision(attack_type)
 
 func toggleDamageCollision(attack_type):
@@ -241,3 +247,7 @@ func calculate_final_damage(base_attack_damage: int) -> int:
 func pick_up_sword():
 	has_sword = true
 	print("Sword picked up!")
+
+func pick_up_key():
+	has_key = true
+	print("Key Picked up!")

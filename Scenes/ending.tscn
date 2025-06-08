@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://vuo6gu1ubpmf"]
+
+[ext_resource type="Script" path="res://Scripts/intro_story.gd" id="1_8371h"]
+[ext_resource type="VideoStream" path="res://Assets/story/Ending + Credits.ogv" id="2_prsow"]
+[ext_resource type="Script" path="res://Scripts/label.gd" id="3_2mhc2"]
+
+[node name="ending" type="Node2D"]
+script = ExtResource("1_8371h")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+custom_minimum_size = Vector2(10, 10)
+offset_left = 4.0
+offset_right = 1924.0
+offset_bottom = 1088.0
+scale = Vector2(0.6, 0.6)
+stream = ExtResource("2_prsow")
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 898.0
+offset_top = 11.0
+offset_right = 1134.0
+offset_bottom = 41.0
+text = "Press Enter To Skip"
+horizontal_alignment = 2
+script = ExtResource("3_2mhc2")
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

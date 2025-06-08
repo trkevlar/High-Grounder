@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://4eenlyn7mdv1"]
 
 [ext_resource type="Texture2D" uid="uid://b6gxs1amxiq25" path="res://Assets/menu_bg.jpg" id="1_1cej7"]
-[ext_resource type="Script" uid="uid://bv2yros6jlrlo" path="res://Scripts/main_menu.gd" id="1_xjxss"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_xjxss"]
 [ext_resource type="Texture2D" uid="uid://b6ypumcx47udt" path="res://Assets/Artboard 2@2x.png" id="2_xicgy"]
 [ext_resource type="FontFile" uid="uid://18sletis5tt4" path="res://Assets/Fonts/Symtext.ttf" id="3_tvoe1"]
 
@@ -45,6 +45,7 @@ shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
 [node name="MainMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

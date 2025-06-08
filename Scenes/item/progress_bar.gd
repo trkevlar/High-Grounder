@@ -17,4 +17,4 @@ func _process(delta):
 		if parent.health == minValueAmount:
 			self.visible = false
 	else:
-		self.visible = false
+		self.visible = true
