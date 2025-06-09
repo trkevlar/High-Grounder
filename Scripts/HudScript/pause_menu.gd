@@ -2,6 +2,8 @@ extends Control
 
 func _ready() -> void:
 	$AnimationPlayer.play("RESET")
+	hide()
+	get_tree().paused = false
 
 func resume():
 	hide()
