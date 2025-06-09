@@ -31,7 +31,7 @@ var target_player: CharacterBody2D
 var playerInArea = false
 
 var takingDamageTimer: float = 0.0
-var takingDamageDuration: float = 0.8
+var takingDamageDuration: float = 0.3
 var attackCooldownTimer: float = 0.0
 var attackCooldown: float = 1.5
 
@@ -144,7 +144,7 @@ func _process(delta):
 	handleAnimation()
 	move_and_slide()
 
-func move(delta):
+func move(_delta):
 	if dead:
 		velocity.x = 0
 		return

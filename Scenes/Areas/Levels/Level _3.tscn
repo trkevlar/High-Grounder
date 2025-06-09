@@ -5777,7 +5777,7 @@ texture = ExtResource("2_wr4ea")
 physics_layer_0/collision_layer = 3
 sources/2 = SubResource("TileSetAtlasSource_ipves")
 
-[node name="Level2" type="Node2D"]
+[node name="Level3" type="Node2D"]
 
 [node name="Tilemaps" type="Node" parent="."]
 
