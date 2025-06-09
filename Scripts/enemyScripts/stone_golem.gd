@@ -31,7 +31,7 @@ var target_player: CharacterBody2D
 var playerInArea = false
 
 var takingDamageTimer: float = 0.0
-var takingDamageDuration: float = 0.3
+var takingDamageDuration: float = 0.2
 var attackCooldownTimer: float = 0.0
 var attackCooldown: float = 1.5
 

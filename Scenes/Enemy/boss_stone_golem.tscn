@@ -1,120 +1,120 @@
 [gd_scene load_steps=37 format=3 uid="uid://blqdq68p0510w"]
 
-[ext_resource type="Script" uid="uid://ckssid7vp2fj5" path="res://Scripts/enemyScripts/stone_golem.gd" id="1_psvsn"]
-[ext_resource type="Texture2D" uid="uid://dmapkevbvng3o" path="res://Assets/Sprites/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_sxbk4"]
-[ext_resource type="PackedScene" uid="uid://cn5vr66aq0v5s" path="res://Scenes/Enemy/golem_projectile.tscn" id="2_hpiyt"]
-[ext_resource type="PackedScene" uid="uid://dnp3cnywdbm7e" path="res://Scenes/Hud/health_barBos.tscn" id="2_psvsn"]
+[ext_resource type="Script" uid="uid://ckssid7vp2fj5" path="res://Scripts/enemyScripts/stone_golem.gd" id="1_rdeik"]
+[ext_resource type="PackedScene" uid="uid://cn5vr66aq0v5s" path="res://Scenes/Enemy/golem_projectile.tscn" id="2_25i0f"]
+[ext_resource type="Texture2D" uid="uid://dmapkevbvng3o" path="res://Assets/Sprites/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="3_sb4i1"]
+[ext_resource type="PackedScene" uid="uid://dnp3cnywdbm7e" path="res://Scenes/Hud/health_barBos.tscn" id="4_i5akk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_psvsn"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(100, 400, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpiyt"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(500, 400, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0dog2"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(600, 400, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xydf5"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(0, 200, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fbby"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(100, 200, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6o7y"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(200, 200, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjg7j"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(300, 200, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1sbmx"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(400, 200, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gceat"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(500, 200, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afrt7"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(600, 200, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_31xm4"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(700, 200, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bw4rc"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(800, 200, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_an6ey"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(0, 800, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6njp"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(100, 800, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0ovd"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(200, 800, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_emknh"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(300, 800, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxapw"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(100, 100, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rbs7u"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(200, 100, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iltd6"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(300, 100, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2w4lv"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(400, 100, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3u3hf"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vvbd"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(100, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4ct3"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(200, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hoa6"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eta8e"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3x4h7"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(100, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdq8x"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(200, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jhrj6"]
-atlas = ExtResource("1_sxbk4")
+atlas = ExtResource("3_sb4i1")
 region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_31xm4"]
@@ -247,8 +247,8 @@ height = 49.9938
 
 [node name="Stone Golem" type="CharacterBody2D" groups=["Boss"]]
 collision_layer = 2
-script = ExtResource("1_psvsn")
-projectile_scene = ExtResource("2_hpiyt")
+script = ExtResource("1_rdeik")
+projectile_scene = ExtResource("2_25i0f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -17)
@@ -281,7 +281,7 @@ shape = SubResource("CapsuleShape2D_g2rsr")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
 
-[node name="HealthBarBoss" parent="CanvasLayer" instance=ExtResource("2_psvsn")]
+[node name="HealthBarBoss" parent="CanvasLayer" instance=ExtResource("4_i5akk")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

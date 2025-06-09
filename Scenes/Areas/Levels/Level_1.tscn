@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bs4bvwqg4pv7u"]
+[gd_scene load_steps=20 format=4 uid="uid://bs4bvwqg4pv7u"]
 
 [ext_resource type="Texture2D" uid="uid://bs83v2qm6eqm7" path="res://Assets/PixelFantasy_Caves_1.0/background3.png" id="1_45wer"]
 [ext_resource type="Texture2D" uid="uid://d2hlv7cfvcubq" path="res://Assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="2_y4fil"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://jxlf8wp4wrfb" path="res://Scenes/pause_menu.tscn" id="12_d8mba"]
 [ext_resource type="PackedScene" uid="uid://csx1s25rer0u6" path="res://Scenes/Enemy/boss_slime.tscn" id="13_4df6l"]
 [ext_resource type="PackedScene" uid="uid://dpq1o3xglv2ps" path="res://Scenes/Hud/message_popup.tscn" id="13_oa61a"]
-[ext_resource type="PackedScene" uid="uid://blqdq68p0510w" path="res://Scenes/Enemy/stone_golem.tscn" id="14_4df6l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvprh"]
 texture = ExtResource("1_45wer")
@@ -5356,6 +5355,3 @@ position = Vector2(158, -8)
 position = Vector2(574, -1534)
 
 [node name="MessagePopup" parent="." instance=ExtResource("13_oa61a")]
-
-[node name="Stone Golem" parent="." instance=ExtResource("14_4df6l")]
-position = Vector2(495, 34)

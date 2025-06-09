@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://bsu7f613voyn4"]
+[gd_scene load_steps=12 format=4 uid="uid://bsu7f613voyn4"]
 
 [ext_resource type="Texture2D" uid="uid://bs83v2qm6eqm7" path="res://Assets/PixelFantasy_Caves_1.0/background3.png" id="1_rh413"]
 [ext_resource type="Texture2D" uid="uid://d2hlv7cfvcubq" path="res://Assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="2_wr4ea"]
 [ext_resource type="Texture2D" uid="uid://dcav6st2jh5o7" path="res://Assets/PixelFantasy_Caves_1.0/background1.png" id="3_q56lj"]
 [ext_resource type="PackedScene" uid="uid://dleq5dgqfwlft" path="res://Scenes/Areas/player.tscn" id="4_wy71i"]
+[ext_resource type="PackedScene" uid="uid://blqdq68p0510w" path="res://Scenes/Enemy/boss_stone_golem.tscn" id="5_t6d1k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5x8r4"]
 texture = ExtResource("1_rh413")
@@ -5804,3 +5805,6 @@ position = Vector2(69, -6)
 
 [node name="Camera2D" type="Camera2D" parent="Tilemaps/Player"]
 zoom = Vector2(2, 2)
+
+[node name="Stone Golem" parent="Tilemaps" instance=ExtResource("5_t6d1k")]
+position = Vector2(1153, -629)
