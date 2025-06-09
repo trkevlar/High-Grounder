@@ -24,6 +24,7 @@ PlayerStats="*res://Scripts/characterScripts/PlayerStats.gd"
 
 Player=""
 Boss=""
+Ground=""
 
 [input]
 

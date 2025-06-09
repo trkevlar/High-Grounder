@@ -191,9 +191,9 @@ func checkHitbox():
 			parent.isDealingDamage = false
 		elif parent is enemyTanah and parent.isDealingDamage and !parent.dead:
 			totalDamage += Global.enemyTanahDamageAmount
-		#elif parent is enemyMushroom and !parent.dead:
-			#if parent.isDealingDamage:
-				#totalDamage += Global.enemyMushroomDamageAmount
+		elif parent is enemyMushroom and !parent.dead:
+			if parent.isDealingDamage:
+				totalDamage += Global.enemyMushroomDamageAmount
 		#elif parent is enemyHuman and !parent.dead:
 			#if parent.isDealingDamage:
 				#totalDamage += Global.enemyHumanDamageAmount

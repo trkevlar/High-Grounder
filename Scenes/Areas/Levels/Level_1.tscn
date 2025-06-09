@@ -5330,7 +5330,7 @@ position = Vector2(433, -226)
 position = Vector2(244, -184)
 
 [node name="Player" parent="Tilemaps" instance=ExtResource("8_j5fme")]
-position = Vector2(28, -903)
+position = Vector2(27, -903)
 
 [node name="Camera2D" type="Camera2D" parent="Tilemaps/Player"]
 position = Vector2(3, -35)
@@ -5352,6 +5352,5 @@ position = Vector2(158, -8)
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_d8mba")]
 
 [node name="Slime King" parent="." instance=ExtResource("13_4df6l")]
-position = Vector2(536, -1517)
 
 [node name="MessagePopup" parent="." instance=ExtResource("13_oa61a")]

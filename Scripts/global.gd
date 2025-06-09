@@ -10,7 +10,7 @@ var player_health: int = 100
 var player_has_sword: bool = false
 
 var crabDamageZone: Area2D
-var crabDamageAmount: int
+var crabDamageAmount: float
 
 var enemyTanahDamageZone: Area2D
 var enemyTanahDamageAmount: int
