@@ -119,9 +119,14 @@ func _physics_process(delta: float) -> void:
 					animation.play("jump")
 				if velocity.y > 0:
 					animation.play("fall")
-			if has_sword and Input.is_action_just_pressed("attack") and is_on_floor():
-				attacking = true
-				attackType = "attack"
+			if has_sword and Input.is_action_just_pressed("attack"):
+				if is_on_floor():
+					attacking = true
+					attackType = "attack"
+				else:
+					attacking = true
+					attackType = "airAttack"
+					
 				setDamage(attackType)
 				handleAttackAnimation(attackType)
 		
@@ -337,6 +342,8 @@ func toggleDamageCollision(attack_type):
 	var waitTime: float
 	if attack_type == "attack":
 		waitTime = 0.6
+	if attack_type == "airAttack":
+		waitTime = 0.6
 	damageZoneCollision.disabled = false
 	await get_tree().create_timer(waitTime).timeout
 	damageZoneCollision.disabled = true
@@ -356,6 +363,8 @@ func setDamage(attack_type):
 	
 	if attack_type == "attack":
 		base_attack_damage = 8
+	if attack_type == "airAttack":
+		base_attack_damage = 12
 	Global.playerDamageAmount = calculate_final_damage(base_attack_damage)
 	emit_signal("damage_updated", Global.playerDamageAmount) 
 

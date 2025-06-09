@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dleq5dgqfwlft"]
+[gd_scene load_steps=39 format=3 uid="uid://dleq5dgqfwlft"]
 
 [ext_resource type="Script" uid="uid://csur0gy8ok8ut" path="res://Scripts/characterScripts/player.gd" id="1_g7okg"]
 [ext_resource type="Texture2D" uid="uid://bs0mpb12vmc5l" path="res://Assets/Sprites/weapon bunny.png" id="5_0yx06"]
@@ -33,10 +33,6 @@ region = Rect2(128, 160, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_owqxi"]
 atlas = ExtResource("5_0yx06")
 region = Rect2(0, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lxung"]
-atlas = ExtResource("5_0yx06")
-region = Rect2(32, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_snsuu"]
 atlas = ExtResource("8_y8fpx")
@@ -144,9 +140,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_owqxi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lxung")
 }],
 "loop": false,
 "name": &"attack2",
@@ -257,7 +250,7 @@ script = ExtResource("1_g7okg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_0yx06")
-animation = &"fall"
+animation = &"attack2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
