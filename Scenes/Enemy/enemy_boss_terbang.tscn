@@ -260,16 +260,17 @@ size = Vector2(12, 33)
 [sub_resource type="CircleShape2D" id="CircleShape2D_jtx6d"]
 radius = 21.0238
 
-[node name="enemyHuman1" type="CharacterBody2D"]
-collision_layer = 2
+[node name="Flying Eye" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_b5jrf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.38419e-07, -9)
 scale = Vector2(0.9375, 0.84375)
 sprite_frames = SubResource("SpriteFrames_jjo17")
-animation = &"run"
-frame_progress = 0.544943
+animation = &"attack"
+frame = 3
+frame_progress = 0.710483
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 6)
@@ -291,18 +292,19 @@ position = Vector2(20, -6)
 position = Vector2(-20, -2)
 shape = SubResource("CircleShape2D_jtx6d")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 0
 
-[node name="HealthBarBoss" parent="CanvasLayer" instance=ExtResource("6_nfa11")]
+[node name="HealthBarBoss" parent="CanvasLayer2" instance=ExtResource("6_nfa11")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -268.0
-offset_top = -62.0
-offset_right = 268.0
-offset_bottom = -39.0
+offset_left = -257.0
+offset_top = -40.0
+offset_right = 257.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
 target_path = NodePath("../..")

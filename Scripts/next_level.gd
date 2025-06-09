@@ -7,13 +7,15 @@ func _on_body_entered(body: Node2D) -> void:
 		PlayerStats.save_from_player(body)
 		Global.player_health = body.health
 		Global.player_has_sword = body.has_sword
-		
 		Global.player_skills = body.active_skills.duplicate()
 		
 		var bosses = get_tree().get_nodes_in_group("Boss")
 		for boss in bosses:
 			if not boss.dead:
-				print("Cannot proceed - boss still alive!")
+				var popup = get_tree().current_scene.get_node("MessagePopup")
+				if popup:
+					popup.show_message("Boss Is Still Alive!")
+
 				return
 				
 		var current_scene_file = get_tree().current_scene.scene_file_path

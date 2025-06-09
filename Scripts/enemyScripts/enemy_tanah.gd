@@ -7,13 +7,13 @@ var owner_spawner: Node = null
 const speed = 30
 var isEnemyChase: bool
 
-var health = 50
-var healthMax = 50
+var health = 30
+var healthMax = 30
 var healthMin = 0
 
 var dead: bool = false
 var takingDamage: bool = false
-var damageToDeal = 4
+var damageToDeal = 2
 var isDealingDamage: bool = false
 var can_attack: bool = true
 

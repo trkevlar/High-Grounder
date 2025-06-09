@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2kt7fnk4ucut"]
 
 [ext_resource type="Script" uid="uid://cd54koaqj7k51" path="res://Scripts/itemScripts/strength_up.gd" id="1_wiaub"]
-[ext_resource type="Texture2D" uid="uid://cc5j80ntvhq87" path="res://Assets/Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="2_4qe7o"]
+[ext_resource type="Texture2D" uid="uid://cioj8fjat2em5" path="res://Assets/weapon bunny.png" id="2_wiaub"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjmai"]
 radius = 7.07107
@@ -10,7 +10,9 @@ radius = 7.07107
 script = ExtResource("1_wiaub")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_4qe7o")
+texture = ExtResource("2_wiaub")
+region_enabled = true
+region_rect = Rect2(91.3349, 96.0965, 34.776, 33.0796)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qjmai")

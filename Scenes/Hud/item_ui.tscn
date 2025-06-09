@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://butupkbr3d5f0"]
+[gd_scene load_steps=6 format=3 uid="uid://butupkbr3d5f0"]
 
 [ext_resource type="Texture2D" uid="uid://cioj8fjat2em5" path="res://Assets/weapon bunny.png" id="1_pooby"]
 [ext_resource type="Script" uid="uid://b7lkw2hshgdmd" path="res://Scripts/HudScript/item_ui.gd" id="1_uxhag"]
@@ -10,6 +10,10 @@ region = Rect2(95.4511, 100.306, 26.7181, 27.9904)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dftd0"]
 atlas = ExtResource("1_pooby")
 region = Rect2(125.915, 65.9941, 31.8631, 25.2008)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jrui"]
+atlas = ExtResource("1_pooby")
+region = Rect2(132.889, 136.807, 22.4158, 25.0273)
 
 [node name="Container" type="Control"]
 layout_mode = 3
@@ -36,6 +40,15 @@ layout_mode = 2
 offset_left = 34.0
 offset_right = 34.0
 offset_bottom = 40.0
+
+[node name="DAMAGE_RESISTANCE" type="TextureRect" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 91.0
+offset_top = -2.0
+offset_right = 124.0
+offset_bottom = 38.0
+texture = SubResource("AtlasTexture_5jrui")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 visible = false

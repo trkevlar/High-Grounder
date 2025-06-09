@@ -11,13 +11,13 @@ var is_crab_chase: bool
 
 var target_player: CharacterBody2D
 
-var health = 50
-var healthMax = 50
+var health = 30
+var healthMax = 30
 var healthMin = 0
 var dead = false
 var takingDamage = false
 var isRoaming: bool
-var damageToDeal =4
+var damageToDeal =1.5
 
 var chase_threshold_distance = 10.0
 

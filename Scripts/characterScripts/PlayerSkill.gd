@@ -5,7 +5,8 @@ enum SkillType {
 	LIFE_STEAL,     # % life steal
 	STRENGTH_UP,    # +damage
 	HEALTH_UP,      # +max HP
-	SPEED_UP        # +movement speed
+	SPEED_UP,
+	DAMAGE_RESISTANCE
 }
 
 var type: SkillType

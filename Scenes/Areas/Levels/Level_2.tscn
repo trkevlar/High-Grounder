@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://darhku83fkq0u"]
+[gd_scene load_steps=17 format=4 uid="uid://darhku83fkq0u"]
 
 [ext_resource type="Texture2D" uid="uid://bs83v2qm6eqm7" path="res://Assets/PixelFantasy_Caves_1.0/background3.png" id="1_0ydif"]
 [ext_resource type="Texture2D" uid="uid://d2hlv7cfvcubq" path="res://Assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="2_4f308"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bnxg0hhs6nudg" path="res://Scenes/Enemy/enemy_tanah.tscn" id="5_vdg3r"]
 [ext_resource type="PackedScene" uid="uid://oxy2nug8vrx8" path="res://Scenes/Enemy/Barrier.tscn" id="6_uwx2y"]
 [ext_resource type="PackedScene" uid="uid://dd4d8hwyxmosg" path="res://Scenes/Enemy/enemyTerbang.tscn" id="7_x2g6r"]
+[ext_resource type="PackedScene" uid="uid://ba2xtpry3nbl3" path="res://Scenes/item/healing_item.tscn" id="10_qciey"]
 [ext_resource type="PackedScene" uid="uid://bkki0rg4c3j2e" path="res://Scenes/Enemy/enemy_boss_terbang.tscn" id="10_tixbg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5x8r4"]
@@ -5775,7 +5776,7 @@ tile_set = SubResource("TileSet_plno7")
 [node name="Enemy" type="Node" parent="Tilemaps"]
 
 [node name="SpawnEnemy1" parent="Tilemaps/Enemy" node_paths=PackedStringArray("spawn_positions", "wall_barrier") instance=ExtResource("4_3hn63")]
-position = Vector2(1024, 72)
+position = Vector2(1051, 35)
 enemy_scene = ExtResource("5_vdg3r")
 spawn_positions = [NodePath("Marker2D2")]
 max_enemies_alive = 4
@@ -5784,7 +5785,7 @@ spawn_interval = 1.0
 wall_barrier = NodePath("Barrier2")
 
 [node name="Marker2D2" type="Marker2D" parent="Tilemaps/Enemy/SpawnEnemy1"]
-position = Vector2(319, -248)
+position = Vector2(280, -205)
 
 [node name="Barrier2" parent="Tilemaps/Enemy/SpawnEnemy1" instance=ExtResource("6_uwx2y")]
 position = Vector2(145, -459)
@@ -5821,19 +5822,28 @@ tile_set = SubResource("TileSet_665ak")
 tile_set = SubResource("TileSet_plno7")
 
 [node name="Player" parent="Tilemaps" instance=ExtResource("4_4f308")]
-position = Vector2(21, 1)
+position = Vector2(21, 3)
 
 [node name="Camera2D" type="Camera2D" parent="Tilemaps/Player"]
 zoom = Vector2(2.8, 2.8)
 position_smoothing_enabled = true
 
+[node name="Flying Eye" parent="." instance=ExtResource("10_tixbg")]
+position = Vector2(1070, -1802)
+
 [node name="SpawnEnemy2" parent="." node_paths=PackedStringArray("spawn_positions") instance=ExtResource("4_3hn63")]
-position = Vector2(404, -1907)
-enemy_scene = ExtResource("10_tixbg")
-spawn_positions = [NodePath("Marker2D")]
-max_enemies_alive = 1
-max_enemies_total = 1
-spawn_interval = 1.0
+position = Vector2(401, -1903)
+enemy_scene = ExtResource("7_x2g6r")
+spawn_positions = [NodePath("Marker2D"), NodePath("Marker2D2")]
+max_enemies_alive = 4
+max_enemies_total = 8
+spawn_interval = 0.5
 
 [node name="Marker2D" type="Marker2D" parent="SpawnEnemy2"]
-position = Vector2(623, -8)
+position = Vector2(873, 72)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnEnemy2"]
+position = Vector2(477, 29)
+
+[node name="HealingItem" parent="." instance=ExtResource("10_qciey")]
+position = Vector2(1446, -1367)

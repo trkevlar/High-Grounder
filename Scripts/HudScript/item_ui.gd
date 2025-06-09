@@ -30,7 +30,7 @@ func _ready() -> void:
 
 func _on_skill_added(skill: PlayerSkill) -> void:
 	var icon_name: String = PlayerSkill.SkillType.keys()[skill.type]
-	print("Skill ditambahkan:", icon_name)
+	print("Skill Added:", icon_name)
 	var icon: Control = skill_container.get_node_or_null(icon_name)
 	if icon:
 		print("Ikon ditemukan:", icon.name)
@@ -62,14 +62,14 @@ func _skill_type_from_icon(icon_name: String) -> PlayerSkill.SkillType:
 		return PlayerSkill.SkillType[icon_name]   # ✅ langsung ambil nilai enum-nya
 
 	# Fallback (nama ikon tak cocok enum mana pun)
-	push_warning("Skill icon_name tidak ditemukan: " + icon_name)
+	push_warning("Skill icon_name not found: " + icon_name)
 	return PlayerSkill.SkillType.LIFE_STEAL
-
 
 func _build_tooltip(skill: PlayerSkill) -> String:
 	match skill.type:
 		PlayerSkill.SkillType.LIFE_STEAL:  return "Life-steal: %.0f%% dari damage" % (skill.value * 100)
 		PlayerSkill.SkillType.STRENGTH_UP: return "Damage +%.0f" % skill.value
 		PlayerSkill.SkillType.HEALTH_UP:   return "Max HP +%.0f" % skill.value
-		PlayerSkill.SkillType.SPEED_UP:    return "Kecepatan +%.0f%%" % (skill.value * 100)
-		_:                                 return "Skill tidak dikenal"
+		PlayerSkill.SkillType.SPEED_UP:    return "Speed +%.0f%%" % (skill.value * 100)
+		PlayerSkill.SkillType.DAMAGE_RESISTANCE: return "Damage Resistance %.0f%%" % (skill.value * 100)
+		_:                                 return "Unknown Skill"

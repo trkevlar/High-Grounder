@@ -186,15 +186,23 @@ func checkHitbox():
 			parent.isDealingDamage = false
 		elif parent is enemyTanah and parent.isDealingDamage and !parent.dead:
 			totalDamage += Global.enemyTanahDamageAmount
-		elif parent is enemyMushroom and !parent.dead:
-			if parent.isDealingDamage:
-				totalDamage += Global.enemyMushroomDamageAmount
+		#elif parent is enemyMushroom and !parent.dead:
+			#if parent.isDealingDamage:
+				#totalDamage += Global.enemyMushroomDamageAmount
 		#elif parent is enemyHuman and !parent.dead:
 			#if parent.isDealingDamage:
 				#totalDamage += Global.enemyHumanDamageAmount
 	
 	if totalDamage > 0 and canTakingDamage:
 		takeDamage(totalDamage)
+
+func _get_total_damage_resistance() -> float:
+	var resist := 0.0
+	for s in active_skills:
+		if s.type == PlayerSkill.SkillType.DAMAGE_RESISTANCE:
+			resist += s.value           # kalau boleh stack
+	return clamp(resist, 0.0, 0.8)      # batasi 80 % supaya tak kebal total
+
 
 func takeDamage(damage):
 	if damage <= 0 or dead or is_taking_damage:
@@ -203,7 +211,10 @@ func takeDamage(damage):
 	# Handle blocked damage
 	if is_blocking and block_stamina > 0 and not dead:
 		# Reduce damage and consume extra stamina for hit
-		var reduced_damage = damage * (1.0 - block_damage_reduction)
+		var resist = _get_total_damage_resistance()
+		var reduced_damage = damage
+		reduced_damage *= (1.0 - resist)              # kurangi oleh resistensi
+		reduced_damage *= (1.0 - block_damage_reduction)  # lalu kurangi oleh block
 		block_stamina = max(0, block_stamina - block_hit_depletion)  # Extra stamina loss per hit
 		health -= reduced_damage
 		animation.play("attack2")  # Reinforce block animation
@@ -225,7 +236,9 @@ func takeDamage(damage):
 		# Normal damage handling
 		is_taking_damage = true
 		is_hit = true
-		health -= damage
+		var resist = _get_total_damage_resistance()
+		var final_damage = damage * (1.0 - resist)
+		health -= final_damage
 		emit_signal("health_changed", health, healthMax)  # Emit health change
 		print(health)
 		

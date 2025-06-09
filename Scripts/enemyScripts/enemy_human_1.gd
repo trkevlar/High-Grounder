@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 class_name enemyHuman
-@export var detect_range = 200.0
-@export var attack_range = 30.0
+@export var detect_range = 250.0
+@export var attack_range = 90.0
+@export var attack_min_range = 15.0
 var owner_spawner: Node = null
 
-const speed = 30
+const speed = 40
 var isEnemyChase: bool
 
 var health = 100
@@ -19,7 +20,6 @@ var isDealingDamage: bool = false
 var can_attack: bool = true
 
 var dir: Vector2
-const gravity = 900
 var knockbackForce = -5
 
 var target_player: CharacterBody2D
@@ -41,7 +41,7 @@ func _ready():
 	$AnimatedSprite2D.connect("frame_changed", Callable(self, "_on_frame_changed"))
 
 func _on_frame_changed():
-	if $AnimatedSprite2D.animation == "attack" and $AnimatedSprite2D.frame == 2:
+	if $AnimatedSprite2D.animation == "attack" and $AnimatedSprite2D.frame == 4:
 		if isDealingDamage and not has_dealt_damage:  # Add a flag to track if damage was dealt
 			deal_damage_to_player()
 			has_dealt_damage = true
@@ -63,55 +63,53 @@ func _process(delta):
 		handleAnimation()
 		return
 
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
+	# ------------------------------------------------------------------
+	# ❶ Validasi player
+	if Global.playerAlive and is_instance_valid(Global.playerBody):
+		target_player = Global.playerBody
+		var distance_to_player = global_position.distance_to(target_player.global_position)
+		isEnemyChase = distance_to_player <= detect_range
+	else:
+		target_player = null
+		isEnemyChase = false
+		
 	if takingDamage:
 		takingDamageTimer -= delta
 		if takingDamageTimer <= 0:
 			takingDamage = false
-			# Setelah selesai takingDamage, coba mulai attack lagi kalau player masih di area
-			if playerInArea and not is_attacking and can_attack and not dead:
+			if playerInArea and not is_attacking and can_attack:
 				start_attacking()
-	
+
 	if attackCooldownTimer > 0:
 		attackCooldownTimer -= delta
 	else:
 		can_attack = true
 
-	if Global.playerAlive:
-		target_player = Global.playerBody
-		var to_player = target_player.global_position - global_position
-		var distance = global_position.distance_to(target_player.global_position)
+	# ❸ Hitung jarak & putuskan gerak
+	if isEnemyChase and target_player:
+		var to_player  = target_player.global_position - global_position
+		var distance   = to_player.length()
 
-		if distance <= detect_range:
-			isEnemyChase = true
-			if distance > attack_range or not playerInArea or takingDamage:
-				dir.x = sign(to_player.x)
-				velocity.x = speed * dir.x
-				isDealingDamage = false
-			else:
-				velocity.x = 0
-				if can_attack and not isDealingDamage and not is_attacking:
-					start_attacking()
+		if distance > attack_range or takingDamage or not playerInArea:
+			var dir_to_player = to_player.normalized()
+			velocity = dir_to_player * speed
+			dir.x = sign(dir_to_player.x)
+			isDealingDamage = false
 		else:
-			isEnemyChase = false
-			#velocity.x = 0
+			# Tambahkan kondisi baru agar musuh tidak terlalu dekat
+			if distance < attack_min_range:
+				velocity = Vector2.ZERO  # Diam agar tidak nempel
+			else:
+				var dir_to_player = to_player.normalized()
+				velocity = dir_to_player * speed
+				dir.x = sign(dir_to_player.x)
+
+			if can_attack and not is_attacking and not isDealingDamage:
+				start_attacking()
 	else:
-		isEnemyChase = false
-		#velocity.x = 0
-		target_player = null
-	
-	#Global.enemyHumanDamageAmount = damageToDeal
-	#Global.enemyHumanDamageZone = $enemyDealDamage
-	
-	if is_instance_valid(target_player):
-		var distance = global_position.distance_to(target_player.global_position)
-		if distance > detect_range:
-			isEnemyChase = false
-			velocity.x = 0
-			dir.x = 0 
-			
+		velocity = Vector2.ZERO
+	# ------------------------------------------------------------------
+
 	move(delta)
 	handleAnimation()
 	move_and_slide()
@@ -120,14 +118,9 @@ func move(delta):
 	if !dead:
 		if !isEnemyChase:
 			velocity += dir * speed * delta
-		elif isEnemyChase and !takingDamage and target_player:
-			var dirToPlayer = position.direction_to(target_player.position) * speed
-			velocity.x = dirToPlayer.x
-			if velocity.x != 0:
-				dir.x = sign(velocity.x)
-		elif takingDamage:
-			var knockbackDir = position.direction_to(target_player.position) * knockbackForce
-			velocity.x = knockbackDir.x
+		if takingDamage and target_player:
+			var dir_away = (global_position - target_player.global_position).normalized()
+			velocity     = dir_away * abs(knockbackForce) 
 			
 	else:
 		velocity.x = 0
