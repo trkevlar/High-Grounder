@@ -1,11 +1,13 @@
-[gd_scene load_steps=38 format=3 uid="uid://dleq5dgqfwlft"]
+[gd_scene load_steps=40 format=3 uid="uid://dleq5dgqfwlft"]
 
-[ext_resource type="Script" path="res://Scripts/characterScripts/player.gd" id="1_g7okg"]
+[ext_resource type="Script" uid="uid://csur0gy8ok8ut" path="res://Scripts/characterScripts/player.gd" id="1_g7okg"]
 [ext_resource type="Texture2D" uid="uid://bs0mpb12vmc5l" path="res://Assets/Sprites/weapon bunny.png" id="5_0yx06"]
+[ext_resource type="PackedScene" uid="uid://c4lxm8rfh7yww" path="res://Scenes/Hud/health_bar.tscn" id="5_3tpg1"]
+[ext_resource type="PackedScene" path="res://Scenes/Hud/StaminaBar.tscn" id="6_0yx06"]
 [ext_resource type="AudioStream" uid="uid://c785bix6u10ta" path="res://Assets/Music/sfx/sword sfx(true).mp3" id="6_f2gsr"]
 [ext_resource type="AudioStream" uid="uid://c1d5gk6r823y6" path="res://Assets/Music/sfx/hit_sound.mp3" id="7_l5ir4"]
+[ext_resource type="PackedScene" uid="uid://butupkbr3d5f0" path="res://Scenes/Hud/item_ui.tscn" id="7_y8fpx"]
 [ext_resource type="Texture2D" uid="uid://dtydw0qs48dkm" path="res://Assets/Sprites/fall sprite.png" id="8_y8fpx"]
-[ext_resource type="PackedScene" uid="uid://bvke5ytd4g5gk" path="res://Scenes/item/progress_bar.tscn" id="13_dd8hs"]
 [ext_resource type="Texture2D" uid="uid://bf1m6emniausf" path="res://Assets/Sprites/character/Character base bunny1.png" id="21_wsa0b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4jo5r"]
@@ -275,11 +277,49 @@ disabled = true
 position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_2gxrt")
 
-[node name="ProgressBar" parent="." instance=ExtResource("13_dd8hs")]
-offset_left = -9.0
-offset_top = -33.0
-offset_right = 10.0
-offset_bottom = -28.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 23.0
+offset_top = 16.0
+offset_right = 96.0
+offset_bottom = 39.0
+text = "Health    :"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 23.0
+offset_top = 43.0
+offset_right = 96.0
+offset_bottom = 66.0
+text = "Stamina :"
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+offset_left = 24.0
+offset_top = 72.0
+offset_right = 64.0
+offset_bottom = 95.0
+text = "Skill         :"
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("5_3tpg1")]
+offset_left = 109.0
+offset_top = 23.0
+offset_right = 277.0
+offset_bottom = 38.0
+target_path = NodePath("../..")
+
+[node name="StaminaBar" parent="CanvasLayer" instance=ExtResource("6_0yx06")]
+offset_left = 109.0
+offset_top = 45.0
+offset_right = 278.0
+offset_bottom = 61.0
+player_path = NodePath("../..")
+
+[node name="Container" parent="CanvasLayer" instance=ExtResource("7_y8fpx")]
+offset_left = 113.0
+offset_top = 67.0
+offset_right = 113.0
+offset_bottom = 67.0
+player_path = NodePath("../..")
 
 [node name="SFX" type="Node" parent="."]
 

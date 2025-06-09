@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://butupkbr3d5f0"]
+
+[ext_resource type="Texture2D" uid="uid://cioj8fjat2em5" path="res://Assets/weapon bunny.png" id="1_pooby"]
+[ext_resource type="Script" uid="uid://b7lkw2hshgdmd" path="res://Scripts/HudScript/item_ui.gd" id="1_uxhag"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxhag"]
+atlas = ExtResource("1_pooby")
+region = Rect2(95.4511, 100.306, 26.7181, 27.9904)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dftd0"]
+atlas = ExtResource("1_pooby")
+region = Rect2(125.915, 65.9941, 31.8631, 25.2008)
+
+[node name="Container" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_uxhag")
+
+[node name="STRENGTH_UP" type="TextureRect" parent="."]
+clip_contents = true
+layout_mode = 2
+offset_right = 33.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_uxhag")
+
+[node name="LIFE_STEAL" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 45.0
+offset_top = -1.0
+offset_right = 82.0
+offset_bottom = 39.0
+texture = SubResource("AtlasTexture_dftd0")
+
+[node name="HEALTH_UP" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 34.0
+offset_right = 34.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -5.0
+offset_top = -1.0
+offset_right = 35.0
+offset_bottom = 39.0
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2

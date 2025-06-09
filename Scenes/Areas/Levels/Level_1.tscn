@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bs4bvwqg4pv7u"]
+[gd_scene load_steps=21 format=4 uid="uid://bs4bvwqg4pv7u"]
 
 [ext_resource type="Texture2D" uid="uid://bs83v2qm6eqm7" path="res://Assets/PixelFantasy_Caves_1.0/background3.png" id="1_45wer"]
 [ext_resource type="Texture2D" uid="uid://d2hlv7cfvcubq" path="res://Assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="2_y4fil"]
@@ -8,10 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://oxy2nug8vrx8" path="res://Scenes/Enemy/Barrier.tscn" id="6_vvx1b"]
 [ext_resource type="PackedScene" uid="uid://dd4d8hwyxmosg" path="res://Scenes/Enemy/enemyTerbang.tscn" id="7_bbnbj"]
 [ext_resource type="PackedScene" uid="uid://dleq5dgqfwlft" path="res://Scenes/Areas/player.tscn" id="8_j5fme"]
-[ext_resource type="PackedScene" uid="uid://cy2o3lv2skyms" path="res://Scenes/Enemy/enemy_human_1.tscn" id="8_yadyh"]
 [ext_resource type="PackedScene" uid="uid://q7ttlx414v26" path="res://Scenes/Areas/Levels/next_level.tscn" id="9_5p337"]
 [ext_resource type="PackedScene" uid="uid://wfdh33fs473d" path="res://Scenes/item/sword.tscn" id="10_eu6wj"]
 [ext_resource type="PackedScene" uid="uid://jxlf8wp4wrfb" path="res://Scenes/pause_menu.tscn" id="12_d8mba"]
+[ext_resource type="PackedScene" uid="uid://csx1s25rer0u6" path="res://Scenes/Enemy/boss_slime.tscn" id="13_4df6l"]
+[ext_resource type="PackedScene" uid="uid://d2kt7fnk4ucut" path="res://Scenes/item/strength_up.tscn" id="13_oa61a"]
+[ext_resource type="PackedScene" uid="uid://bkki0rg4c3j2e" path="res://Scenes/Enemy/enemy_boss_terbang.tscn" id="14_4df6l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvprh"]
 texture = ExtResource("1_45wer")
@@ -5328,21 +5330,6 @@ position = Vector2(433, -226)
 [node name="Marker2D" type="Marker2D" parent="Tilemaps/SpawnEnemy/SpawnEnemy3"]
 position = Vector2(244, -184)
 
-[node name="SpawnEnemy2" parent="Tilemaps/SpawnEnemy" node_paths=PackedStringArray("spawn_positions", "wall_barrier") instance=ExtResource("4_phd4c")]
-position = Vector2(24, -1344)
-enemy_scene = ExtResource("8_yadyh")
-spawn_positions = [NodePath("Marker2D")]
-max_enemies_alive = 1
-max_enemies_total = 1
-spawn_interval = 1.0
-wall_barrier = NodePath("Barrier2")
-
-[node name="Marker2D" type="Marker2D" parent="Tilemaps/SpawnEnemy/SpawnEnemy2"]
-position = Vector2(376, -211)
-
-[node name="Barrier2" parent="Tilemaps/SpawnEnemy/SpawnEnemy2" instance=ExtResource("6_vvx1b")]
-position = Vector2(23, -314)
-
 [node name="Player" parent="Tilemaps" instance=ExtResource("8_j5fme")]
 position = Vector2(31, -900)
 
@@ -5364,3 +5351,12 @@ position = Vector2(228, -4)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_d8mba")]
+
+[node name="strengthUp" parent="." instance=ExtResource("13_oa61a")]
+position = Vector2(255, -13)
+
+[node name="Slime King" parent="." instance=ExtResource("13_4df6l")]
+position = Vector2(537, -1522)
+
+[node name="enemyHuman1" parent="." instance=ExtResource("14_4df6l")]
+position = Vector2(501, -5)

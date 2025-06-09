@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvke5ytd4g5gk"]
+
+[ext_resource type="Script" uid="uid://rrn5urouevp5" path="res://Scripts/HudScript/progress_bar.gd" id="1_vlkow"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdg6u"]
+bg_color = Color(0.811765, 0.121569, 0.0901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlkow"]
+bg_color = Color(0.444858, 0.681471, 0.100439, 1)
+
+[node name="ProgressBar" type="ProgressBar"]
+offset_left = -7.0
+offset_top = 3.0
+offset_right = 8.0
+offset_bottom = 6.0
+theme_override_styles/background = SubResource("StyleBoxFlat_gdg6u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vlkow")
+show_percentage = false
+script = ExtResource("1_vlkow")

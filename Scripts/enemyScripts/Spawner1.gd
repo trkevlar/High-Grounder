@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @export var enemy_scene: PackedScene
 @export var spawn_positions: Array[Marker2D]  # Isi dengan node posisi spawn (Position2D misalnya)
 @export var max_enemies_alive: int = 5  # jumlah musuh yg boleh hidup sekaligus

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://vuo6gu1ubpmf"]
 
-[ext_resource type="Script" path="res://Scripts/intro_story.gd" id="1_8371h"]
-[ext_resource type="VideoStream" path="res://Assets/story/Ending + Credits.ogv" id="2_prsow"]
-[ext_resource type="Script" path="res://Scripts/label.gd" id="3_2mhc2"]
+[ext_resource type="Script" uid="uid://bgj13ksb83ia6" path="res://Scripts/intro_story.gd" id="1_8371h"]
+[ext_resource type="VideoStream" uid="uid://bcnqng1cbskpt" path="res://Assets/story/Ending + Credits.ogv" id="2_prsow"]
+[ext_resource type="Script" uid="uid://d05nisfsiu4rk" path="res://Scripts/label.gd" id="3_2mhc2"]
 
 [node name="ending" type="Node2D"]
 script = ExtResource("1_8371h")

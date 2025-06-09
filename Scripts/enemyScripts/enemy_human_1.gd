@@ -30,6 +30,9 @@ var takingDamageDuration: float = 0.8
 var attackCooldownTimer: float = 0.0
 var attackCooldown: float = 1.5
 
+var has_dealt_damage: bool = false
+var has_dropped_item: bool = false
+
 var is_attacking: bool = false
 signal enemy_died
 
@@ -38,8 +41,12 @@ func _ready():
 	$AnimatedSprite2D.connect("frame_changed", Callable(self, "_on_frame_changed"))
 
 func _on_frame_changed():
-	if $AnimatedSprite2D.animation == "attack" and $AnimatedSprite2D.frame == 2 and isDealingDamage:
-		deal_damage_to_player()
+	if $AnimatedSprite2D.animation == "attack" and $AnimatedSprite2D.frame == 2:
+		if isDealingDamage and not has_dealt_damage:  # Add a flag to track if damage was dealt
+			deal_damage_to_player()
+			has_dealt_damage = true
+	else:
+		has_dealt_damage = false 
 		
 func _on_animation_finished():
 	if $AnimatedSprite2D.animation == "attack":
@@ -53,6 +60,7 @@ func deal_damage_to_player():
 func _process(delta):
 	if dead:
 		velocity = Vector2.ZERO
+		handleAnimation()
 		return
 
 	if not is_on_floor():
@@ -88,10 +96,10 @@ func _process(delta):
 					start_attacking()
 		else:
 			isEnemyChase = false
-			velocity.x = 0
+			#velocity.x = 0
 	else:
 		isEnemyChase = false
-		velocity.x = 0
+		#velocity.x = 0
 		target_player = null
 	
 	#Global.enemyHumanDamageAmount = damageToDeal
@@ -128,6 +136,10 @@ func handleAnimation():
 	var animatedSprite = $AnimatedSprite2D
 	if dead:
 		animatedSprite.play("death")
+		emit_signal("enemy_died")
+		drop_item()
+		await get_tree().create_timer(0.8).timeout
+		handleDeath()
 	elif takingDamage:
 		animatedSprite.play("hit")
 	elif isDealingDamage:
@@ -144,8 +156,16 @@ func handleAnimation():
 	elif dir.x > 0:
 		animatedSprite.flip_h = false
 
+func drop_item():
+	if not has_dropped_item:  # Add this flag as a class variable
+		has_dropped_item = true
+		var item_scene = preload("res://Scenes/item/strength_up.tscn")
+		var dropped_item = item_scene.instantiate()
+		get_parent().call_deferred("add_child", dropped_item)
+		dropped_item.global_position = global_position
+
 func handleDeath():
-	await get_tree().create_timer(0.8).timeout
+	has_dropped_item = false
 	queue_free()
 
 func _on_direction_timer_timeout() -> void:
@@ -170,10 +190,9 @@ func takeDamage(damage):
 	if health <= healthMin:
 		health = healthMin
 		dead = true
-		emit_signal("enemy_died")
-		handleDeath()
 		
 func start_attacking():
+	has_dealt_damage = false
 	if dead or takingDamage or is_attacking:
 		return
 		

@@ -7,13 +7,13 @@ var owner_spawner: Node = null
 const speed = 30
 var isEnemyChase: bool
 
-var health = 80
-var healthMax = 80
+var health = 50
+var healthMax = 50
 var healthMin = 0
 
 var dead: bool = false
 var takingDamage: bool = false
-var damageToDeal = 6
+var damageToDeal = 4
 var isDealingDamage: bool = false
 var can_attack: bool = true
 
@@ -29,22 +29,37 @@ var takingDamageTimer: float = 0.0
 var takingDamageDuration: float = 0.8
 signal enemy_died
 
+var damage_cooldown: float = 1.0
+var damage_cooldown_timer: float = 0.0
+var can_deal_damage: bool = true
+
 func _ready():
 	$AnimatedSprite2D.connect("frame_changed", Callable(self, "_on_frame_changed"))
+	$AnimatedSprite2D.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
 func _on_frame_changed():
-	pass
-	#if $AnimatedSprite2D.animation == "attack":
-		#if $AnimatedSprite2D.frame == 3 and isDealingDamage:
-			#deal_damage_to_player()
-			
+	if $AnimatedSprite2D.animation == "run" and $AnimatedSprite2D.frame == 3:
+		if isDealingDamage and can_deal_damage and playerInArea:
+			deal_damage_to_player()
+			can_deal_damage = false
+			damage_cooldown_timer = damage_cooldown
+
+func _on_animation_finished():
+	if $AnimatedSprite2D.animation == "run":
+		isDealingDamage = false
+
 func deal_damage_to_player():
 	print("Attempting to deal damage")
-	if target_player and not dead and not takingDamage:
+	if target_player and not dead and not takingDamage and is_instance_valid(target_player):
 		print("Dealing damage once")
 		target_player.takeDamage(damageToDeal)
 
 func _process(delta):
+	if damage_cooldown_timer > 0:
+		damage_cooldown_timer -= delta
+	else:
+		can_deal_damage = true
+		
 	if takingDamage:
 		takingDamageTimer -= delta
 		if takingDamageTimer <= 0:
@@ -142,12 +157,18 @@ func _on_enemy_tanah_deal_damage_area_exited(area: Area2D) -> void:
 		stop_attacking() 
 		
 func start_attacking():
+	if dead or takingDamage or isDealingDamage:
+		return
+		
 	playerInArea = true
-	try_attack_loop()
+	isDealingDamage = true
+	can_attack = false
+	$AnimatedSprite2D.play("run")
 
 func stop_attacking():
 	playerInArea = false
 	isDealingDamage = false
+	can_attack = true
 	
 func try_attack_loop():
 	if not playerInArea or dead or takingDamage or not can_attack:
@@ -161,7 +182,6 @@ func try_attack_loop():
 	
 	# Hanya deal damage di frame tertentu (contoh: frame 3)
 	if playerInArea and isDealingDamage:  # Pastikan masih dalam keadaan menyerang
-		
 		deal_damage_to_player()
 	
 	isDealingDamage = false

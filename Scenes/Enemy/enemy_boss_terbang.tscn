@@ -1,10 +1,11 @@
-[gd_scene load_steps=41 format=3 uid="uid://bkki0rg4c3j2e"]
+[gd_scene load_steps=42 format=3 uid="uid://bkki0rg4c3j2e"]
 
-[ext_resource type="Script" path="res://Scripts/enemyScripts/enemy_human_1.gd" id="1_b5jrf"]
+[ext_resource type="Script" uid="uid://l347fa4hgg3k" path="res://Scripts/enemyScripts/enemy_human_1.gd" id="1_b5jrf"]
 [ext_resource type="Texture2D" uid="uid://dbfhet4elgpjw" path="res://Assets/Sprites/Monsters_Creatures_Fantasy/Flying eye/Attack.png" id="2_pu81n"]
 [ext_resource type="Texture2D" uid="uid://dbocesqm4ecxo" path="res://Assets/Sprites/Monsters_Creatures_Fantasy/Flying eye/Death.png" id="3_gnfbj"]
 [ext_resource type="Texture2D" uid="uid://cienlarg1whnk" path="res://Assets/Sprites/Monsters_Creatures_Fantasy/Flying eye/Take Hit.png" id="4_sriqy"]
 [ext_resource type="Texture2D" uid="uid://csxbexv0vgrsj" path="res://Assets/Sprites/Monsters_Creatures_Fantasy/Flying eye/Flight.png" id="5_pcgot"]
+[ext_resource type="PackedScene" uid="uid://dnp3cnywdbm7e" path="res://Scenes/Hud/health_barBos.tscn" id="6_nfa11"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hnmj"]
 atlas = ExtResource("2_pu81n")
@@ -289,6 +290,22 @@ position = Vector2(20, -6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyDealDamage"]
 position = Vector2(-20, -2)
 shape = SubResource("CircleShape2D_jtx6d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBarBoss" parent="CanvasLayer" instance=ExtResource("6_nfa11")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -268.0
+offset_top = -62.0
+offset_right = 268.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+target_path = NodePath("../..")
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
 [connection signal="area_entered" from="EnemyHitbox" to="." method="_on_enemy_hitbox_area_entered"]

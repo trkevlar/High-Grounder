@@ -12,17 +12,18 @@ config_version=5
 
 config/name="ProjectKelompokPakRaji"
 run/main_scene="res://Scenes/studio_intro.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://Scripts/global.gd"
-PlayerStats="*res://PlayerStats.gd"
+PlayerStats="*res://Scripts/characterScripts/PlayerStats.gd"
 
 [global_group]
 
 Player=""
+Boss=""
 
 [input]
 

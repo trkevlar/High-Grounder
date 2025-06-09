@@ -72,8 +72,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_26qfv"]
 _data = {
-"RESET": SubResource("Animation_x2pmf"),
-"open_gate": SubResource("Animation_0800p")
+&"RESET": SubResource("Animation_x2pmf"),
+&"open_gate": SubResource("Animation_0800p")
 }
 
 [node name="Gate" type="Area2D"]

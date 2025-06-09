@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://hgjwp55rxcs0" path="res://Assets/Sprites/enemy/Albino/BatAlbino_Hurt.png" id="3_uw2t6"]
 [ext_resource type="Texture2D" uid="uid://bitxhohmm7yw7" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 04.png" id="4_6us1r"]
 [ext_resource type="Texture2D" uid="uid://e50hfqxauuav" path="res://Assets/Sprites/enemy/Albino/BatAlbino_Flying.png" id="4_ningf"]
-[ext_resource type="PackedScene" uid="uid://bvke5ytd4g5gk" path="res://Scenes/item/progress_bar.tscn" id="9_khftf"]
+[ext_resource type="PackedScene" uid="uid://c4lxm8rfh7yww" path="res://Scenes/Hud/health_bar.tscn" id="9_khftf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3uy2"]
 atlas = ExtResource("2_4jjmx")
@@ -186,11 +186,12 @@ shape = SubResource("CircleShape2D_j8fmw")
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_qdn1h")
 
-[node name="ProgressBar" parent="." instance=ExtResource("9_khftf")]
-offset_left = -6.0
-offset_top = -12.0
-offset_right = 6.0
-offset_bottom = -9.0
+[node name="HealthBar" parent="." instance=ExtResource("9_khftf")]
+offset_left = -8.0
+offset_top = -11.0
+offset_right = 8.0
+offset_bottom = -7.0
+target_path = NodePath("..")
 
 [connection signal="area_entered" from="CrabHitbox" to="." method="_on_crab_hitbox_area_entered"]
 [connection signal="area_entered" from="crabDamageArea" to="." method="_on_crab_damage_area_area_entered"]

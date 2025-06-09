@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://wfdh33fs473d"]
 
-[ext_resource type="Script" path="res://Scripts/itemScripts/sword.gd" id="1_t5m5a"]
+[ext_resource type="Script" uid="uid://damro5kigmncl" path="res://Scripts/itemScripts/sword.gd" id="1_t5m5a"]
 [ext_resource type="Texture2D" uid="uid://bs0mpb12vmc5l" path="res://Assets/Sprites/weapon bunny.png" id="2_ee4td"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ee4td"]

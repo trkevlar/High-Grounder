@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2vhd1hru2og1"]
+
+[ext_resource type="Script" uid="uid://bvwf68clpsyyn" path="res://Scripts/HudScript/pause_menu.gd" id="1_mvf5b"]
+[ext_resource type="Texture2D" uid="uid://cioj8fjat2em5" path="res://Assets/weapon bunny.png" id="2_iuldc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5sbe"]
+atlas = ExtResource("2_iuldc")
+region = Rect2(130.352, 96.9448, 25.87, 36.4724)
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -226.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mvf5b")
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 111.0
+offset_top = 48.0
+offset_right = 111.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.373
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -4.0
+offset_right = 74.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="Resume" type="Button" parent="background/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Main Menu" type="Button" parent="background/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="background/VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.517
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -130.742
+offset_top = -3.0
+offset_right = 17.842
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="background/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.47
+texture = SubResource("AtlasTexture_t5sbe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Health" type="Label" parent="background/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Health :"
+
+[node name="Stamina" type="Label" parent="background/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Stamina : "
+
+[node name="Status" type="Label" parent="background/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Status : "
+
+[node name="Damage" type="Label" parent="background/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Damage :"
+
+[connection signal="pressed" from="background/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="background/VBoxContainer/Main Menu" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="background/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="background/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

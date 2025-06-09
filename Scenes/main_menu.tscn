@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://4eenlyn7mdv1"]
 
 [ext_resource type="Texture2D" uid="uid://b6gxs1amxiq25" path="res://Assets/menu_bg.jpg" id="1_1cej7"]
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_xjxss"]
+[ext_resource type="Script" uid="uid://bv2yros6jlrlo" path="res://Scripts/main_menu.gd" id="1_xjxss"]
 [ext_resource type="Texture2D" uid="uid://b6ypumcx47udt" path="res://Assets/Artboard 2@2x.png" id="2_xicgy"]
 [ext_resource type="FontFile" uid="uid://18sletis5tt4" path="res://Assets/Fonts/Symtext.ttf" id="3_tvoe1"]
 
@@ -95,9 +95,9 @@ theme_override_constants/separation = 41
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_tvoe1")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qx2a4")
@@ -110,9 +110,9 @@ text = "Start Game"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_tvoe1")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qx2a4")
@@ -125,9 +125,9 @@ text = "Settings"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_tvoe1")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qx2a4")

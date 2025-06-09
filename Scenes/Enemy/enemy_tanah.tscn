@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://bnxg0hhs6nudg"]
 
-[ext_resource type="Script" path="res://Scripts/enemyScripts/enemy_tanah.gd" id="1_64eii"]
+[ext_resource type="Script" uid="uid://duf2ud1vr1oxg" path="res://Scripts/enemyScripts/enemy_tanah.gd" id="1_64eii"]
 [ext_resource type="Texture2D" uid="uid://ckjr2fv3se6p5" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 01.png" id="2_th4gb"]
 [ext_resource type="Texture2D" uid="uid://b8ocxja33kxnv" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 02.png" id="3_diki0"]
 [ext_resource type="Texture2D" uid="uid://bn38y1rgg0ugb" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/07-Attack/Attack 03.png" id="4_4vf4j"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ccsvpa8xn6pxv" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="14_l17i4"]
 [ext_resource type="Texture2D" uid="uid://d0pjmc8jcwsgk" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 02.png" id="15_4mvy6"]
 [ext_resource type="Texture2D" uid="uid://ti6yfe2mj181" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 03.png" id="16_bjjai"]
-[ext_resource type="PackedScene" uid="uid://bvke5ytd4g5gk" path="res://Scenes/item/progress_bar.tscn" id="16_kx62v"]
+[ext_resource type="PackedScene" uid="uid://c4lxm8rfh7yww" path="res://Scenes/Hud/health_bar.tscn" id="16_kx62v"]
 [ext_resource type="Texture2D" uid="uid://c54pehc5mer04" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 04.png" id="17_ki8gt"]
 [ext_resource type="Texture2D" uid="uid://b7o1sy41ns5e0" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 05.png" id="18_vtnmr"]
 [ext_resource type="Texture2D" uid="uid://dujm51wdskcyk" path="res://Assets/Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 06.png" id="19_itndl"]
@@ -187,11 +187,12 @@ shape = SubResource("CircleShape2D_64eii")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyTanahDealDamage"]
 shape = SubResource("CircleShape2D_dt72l")
 
-[node name="ProgressBar" parent="." instance=ExtResource("16_kx62v")]
-offset_left = -6.0
-offset_top = -9.0
-offset_right = 6.0
-offset_bottom = -6.0
+[node name="HealthBar" parent="." instance=ExtResource("16_kx62v")]
+offset_left = -9.0
+offset_top = -11.0
+offset_right = 9.0
+offset_bottom = -7.0
+target_path = NodePath("..")
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
 [connection signal="area_entered" from="EnemyTanahHitbox" to="." method="_on_enemy_tanah_hitbox_area_entered"]
