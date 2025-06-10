@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://cy2o3lv2skyms"]
 
-[ext_resource type="Script" uid="uid://l347fa4hgg3k" path="res://Scripts/enemyScripts/enemy_human_1.gd" id="1_5xj0l"]
+[ext_resource type="Script" path="res://Scripts/enemyScripts/enemy_human_1.gd" id="1_5xj0l"]
 [ext_resource type="Texture2D" uid="uid://bu5tfgxja532q" path="res://Assets/Sprites/Sprites/Attack1.png" id="2_sxhms"]
 [ext_resource type="Texture2D" uid="uid://cccrwajmo5140" path="res://Assets/Sprites/Sprites/Death.png" id="3_llpq7"]
 [ext_resource type="Texture2D" uid="uid://c6u8f0m446lmc" path="res://Assets/Sprites/Sprites/Get Hit.png" id="4_b3mcp"]

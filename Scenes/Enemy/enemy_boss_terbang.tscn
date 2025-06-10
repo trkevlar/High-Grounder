@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://bkki0rg4c3j2e"]
 
-[ext_resource type="Script" uid="uid://l347fa4hgg3k" path="res://Scripts/enemyScripts/enemy_human_1.gd" id="1_b5jrf"]
+[ext_resource type="Script" path="res://Scripts/enemyScripts/enemy_human_1.gd" id="1_b5jrf"]
 [ext_resource type="Texture2D" uid="uid://dbfhet4elgpjw" path="res://Assets/Sprites/Monsters_Creatures_Fantasy/Flying eye/Attack.png" id="2_pu81n"]
 [ext_resource type="Texture2D" uid="uid://dbocesqm4ecxo" path="res://Assets/Sprites/Monsters_Creatures_Fantasy/Flying eye/Death.png" id="3_gnfbj"]
 [ext_resource type="Texture2D" uid="uid://cienlarg1whnk" path="res://Assets/Sprites/Monsters_Creatures_Fantasy/Flying eye/Take Hit.png" id="4_sriqy"]

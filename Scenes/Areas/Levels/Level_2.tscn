@@ -5864,3 +5864,4 @@ position = Vector2(1446, -1367)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_pafyo")
 autoplay = true
+parameters/looping = true

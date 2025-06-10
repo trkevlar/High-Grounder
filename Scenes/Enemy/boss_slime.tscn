@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://csx1s25rer0u6"]
 
-[ext_resource type="Script" uid="uid://ccp321ibfv5lm" path="res://Scripts/enemyScripts/boss_slime.gd" id="1_y750s"]
+[ext_resource type="Script" path="res://Scripts/enemyScripts/boss_slime.gd" id="1_y750s"]
 [ext_resource type="Texture2D" uid="uid://cju7ikpet0xr" path="res://Assets/bosses/slime_king.png" id="2_4htae"]
 [ext_resource type="PackedScene" uid="uid://bnxg0hhs6nudg" path="res://Scenes/Enemy/enemy_tanah.tscn" id="2_g2rsr"]
 [ext_resource type="PackedScene" uid="uid://dnp3cnywdbm7e" path="res://Scenes/Hud/health_barBos.tscn" id="4_g2rsr"]
