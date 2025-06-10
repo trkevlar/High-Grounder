@@ -1,9 +1,9 @@
 [gd_scene load_steps=39 format=3 uid="uid://dleq5dgqfwlft"]
 
-[ext_resource type="Script" uid="uid://csur0gy8ok8ut" path="res://Scripts/characterScripts/player.gd" id="1_g7okg"]
+[ext_resource type="Script" path="res://Scripts/characterScripts/player.gd" id="1_g7okg"]
 [ext_resource type="Texture2D" uid="uid://bs0mpb12vmc5l" path="res://Assets/Sprites/weapon bunny.png" id="5_0yx06"]
 [ext_resource type="PackedScene" uid="uid://c4lxm8rfh7yww" path="res://Scenes/Hud/health_bar.tscn" id="5_3tpg1"]
-[ext_resource type="PackedScene" path="res://Scenes/Hud/StaminaBar.tscn" id="6_0yx06"]
+[ext_resource type="PackedScene" uid="uid://bh4rtigi4w03" path="res://Scenes/Hud/StaminaBar.tscn" id="6_0yx06"]
 [ext_resource type="AudioStream" uid="uid://c785bix6u10ta" path="res://Assets/Music/sfx/sword sfx(true).mp3" id="6_f2gsr"]
 [ext_resource type="AudioStream" uid="uid://c1d5gk6r823y6" path="res://Assets/Music/sfx/hit_sound.mp3" id="7_l5ir4"]
 [ext_resource type="PackedScene" uid="uid://butupkbr3d5f0" path="res://Scenes/Hud/item_ui.tscn" id="7_y8fpx"]

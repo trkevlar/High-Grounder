@@ -241,6 +241,7 @@ func takeDamage(damage):
 		# Normal damage handling
 		is_taking_damage = true
 		is_hit = true
+		hit_sfx.play()
 		var resist = _get_total_damage_resistance()
 		var final_damage = damage * (1.0 - resist)
 		health -= final_damage

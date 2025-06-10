@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=4 uid="uid://bsu7f613voyn4"]
+[gd_scene load_steps=16 format=4 uid="uid://bsu7f613voyn4"]
 
 [ext_resource type="Texture2D" uid="uid://bs83v2qm6eqm7" path="res://Assets/PixelFantasy_Caves_1.0/background3.png" id="1_rh413"]
 [ext_resource type="Texture2D" uid="uid://d2hlv7cfvcubq" path="res://Assets/PixelFantasy_Caves_1.0/mainlev_build.png" id="2_wr4ea"]
 [ext_resource type="Texture2D" uid="uid://dcav6st2jh5o7" path="res://Assets/PixelFantasy_Caves_1.0/background1.png" id="3_q56lj"]
 [ext_resource type="PackedScene" uid="uid://dleq5dgqfwlft" path="res://Scenes/Areas/player.tscn" id="4_wy71i"]
-[ext_resource type="PackedScene" uid="uid://blqdq68p0510w" path="res://Scenes/Enemy/boss_stone_golem.tscn" id="5_t6d1k"]
+[ext_resource type="PackedScene" uid="uid://blqdq68p0510w" path="res://Scenes/Enemy/boss_stone_golem.tscn" id="5_1vc0q"]
+[ext_resource type="PackedScene" uid="uid://q7ttlx414v26" path="res://Scenes/Areas/Levels/next_level.tscn" id="6_ombgt"]
+[ext_resource type="PackedScene" uid="uid://jxlf8wp4wrfb" path="res://Scenes/pause_menu.tscn" id="7_5tdkc"]
+[ext_resource type="PackedScene" uid="uid://dow6f5e4wxv21" path="res://Scenes/death_screen.tscn" id="8_10cnl"]
+[ext_resource type="AudioStream" uid="uid://dera7vggag5tn" path="res://Assets/Music/Backsound/Dark Cave Game Music - Royalty Free Music.mp3" id="9_r4rpo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5x8r4"]
 texture = ExtResource("1_rh413")
@@ -5806,5 +5810,18 @@ position = Vector2(69, -6)
 [node name="Camera2D" type="Camera2D" parent="Tilemaps/Player"]
 zoom = Vector2(2, 2)
 
-[node name="Stone Golem" parent="Tilemaps" instance=ExtResource("5_t6d1k")]
+[node name="Stone Golem" parent="Tilemaps" instance=ExtResource("5_1vc0q")]
 position = Vector2(1153, -629)
+
+[node name="Next Level" parent="Tilemaps" instance=ExtResource("6_ombgt")]
+position = Vector2(1260, -3591)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_5tdkc")]
+
+[node name="deathScreen" parent="CanvasLayer" instance=ExtResource("8_10cnl")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_r4rpo")
+autoplay = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bb4l6ox8xjfoi"]
 
-[ext_resource type="Script" uid="uid://de4k2wvhnyqhh" path="res://Scripts/studio_intro.gd" id="1_4gmdt"]
+[ext_resource type="Script" path="res://Scripts/studio_intro.gd" id="1_4gmdt"]
 [ext_resource type="Texture2D" uid="uid://5n7ijdn6xjas" path="res://Assets/Artboard 1@2x.png" id="2_ugt32"]
 
 [sub_resource type="Animation" id="Animation_63tcv"]
@@ -88,9 +88,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jhwbq"]
 _data = {
-&"RESET": SubResource("Animation_63tcv"),
-&"studio_in": SubResource("Animation_xo1i1"),
-&"studio_out": SubResource("Animation_beegr")
+"RESET": SubResource("Animation_63tcv"),
+"studio_in": SubResource("Animation_xo1i1"),
+"studio_out": SubResource("Animation_beegr")
 }
 
 [node name="StudioIntro" type="Node2D"]
@@ -111,5 +111,5 @@ texture = ExtResource("2_ugt32")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../ColorRect")
 libraries = {
-&"": SubResource("AnimationLibrary_jhwbq")
+"": SubResource("AnimationLibrary_jhwbq")
 }
